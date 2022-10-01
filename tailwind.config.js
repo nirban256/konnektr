@@ -65,6 +65,10 @@ module.exports = {
         xl3050: "3050px",
       },
       colors: () => ({
+        "bgInput":"#212121",
+        "textGray":'rgba(255, 255, 255, 0.5)',
+        "verifyIcon":"#008FFF",
+        "selectBorder":"#226FEE"
       }),
       spacing: {
         "75%": "75%",
@@ -95,7 +99,9 @@ module.exports = {
       boxShadow: {
       },
       fontSize: {
-
+        "heading":"2rem",
+        "CardTitle":"1.1rem",
+        "CardDescription":"0.85rem"
       },
       borderRadius: {
       },
@@ -109,5 +115,7 @@ module.exports = {
       }
     },
   },
-  plugins: [],
+  plugins: [
+    require('tailwind-scrollbar-hide')
+  ],
 }

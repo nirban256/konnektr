@@ -1,8 +1,7 @@
-import type { NextPage } from "next";
+import DashboardLayout from "../layout/dashboard";
 
-
-const Home: NextPage = () => {
-  return <div></div>;
+const Home = () => {
+  return <DashboardLayout>Home</DashboardLayout>;
 };
 
 export default Home;

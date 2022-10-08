@@ -65,6 +65,15 @@ module.exports = {
         xl3050: "3050px",
       },
       colors: () => ({
+        bgGrey1: "#262837",
+        bgGrey2: "#2e303f",
+        bgGrey3: "#575661",
+        bgBlack1: "#1f1d2c",
+        badgeRed1: "#F20505",
+        bgInput: "#212121",
+        textGray: 'rgba(255, 255, 255, 0.5)',
+        verifyIcon: "#008FFF",
+        selectBorder: "#226FEE"
       }),
       spacing: {
         "75%": "75%",
@@ -109,5 +118,8 @@ module.exports = {
       }
     },
   },
-  plugins: [],
+  plugins: [require('tailwind-scrollbar-hide')],
+
 }
+
+

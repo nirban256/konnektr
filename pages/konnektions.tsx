@@ -35,12 +35,15 @@ const konnektions = () => {
   const { classes } = useStyles();
   // @ts-ignore
   const {
-    searchBy,
+    // @ts-ignore
+    searchBy, // @ts-ignore
     setSearchBy,
+    // @ts-ignore
     sidebarToggleCollapse,
-    work,
-    setWork,
-    experience,
+    // @ts-ignore
+    work, // @ts-ignore
+    setWork, // @ts-ignore
+    experience, // @ts-ignore
     setExperience,
   } = useAppStateContext();
   const [width, setWidth] = useState<number>(0);

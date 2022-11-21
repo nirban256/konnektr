@@ -65,10 +65,20 @@ module.exports = {
         xl3050: "3050px",
       },
       colors: () => ({
-        "bgInput":"#212121",
-        "textGray":'rgba(255, 255, 255, 0.5)',
-        "verifyIcon":"#008FFF",
-        "selectBorder":"#226FEE"
+        bgGrey1: "#262837",
+        bgGrey2: "#2e303f",
+        bgGrey3: "#575661",
+        bgBlack1: "#1f1d2c",
+        badgeRed1: "#F20505",
+        bgInput: "#212121",
+        textGray: "rgba(255, 255, 255, 0.5)",
+        verifyIcon: "#008FFF",
+        selectBorder: "#226FEE",
+        gradient1: "#FF68F9",
+        gradient2: "#9868FF",
+        line: "rgba(163, 163, 163, 0.25)",
+        tagText: "#8286F0",
+        tagBorder: "rgba(130, 134, 240, 0.2)",
       }),
       spacing: {
         "75%": "75%",
@@ -96,26 +106,17 @@ module.exports = {
         "55-rem": "55rem",
         "60-rem": "60rem",
       },
-      boxShadow: {
+      boxShadow: {},
+      fontSize: {},
+      borderRadius: {},
+      maxWidth: () => ({}),
+      minWidth: {},
+      animation: {},
+      keyframes: {},
+      backgroundImage: {
+        "cover-image": "url(/assets/images/cover.png)",
       },
-      fontSize: {
-        "heading":"2rem",
-        "CardTitle":"1.1rem",
-        "CardDescription":"0.85rem"
-      },
-      borderRadius: {
-      },
-      maxWidth: () => ({
-      }),
-      minWidth: {
-      },
-      animation: {
-      },
-      keyframes: {
-      }
     },
   },
-  plugins: [
-    require('tailwind-scrollbar-hide')
-  ],
-}
+  plugins: [require("tailwind-scrollbar-hide")],
+};

@@ -1,23 +1,34 @@
 import React, { createContext, ReactNode, useContext, useState } from "react";
-import { Blog, User } from "../types/index";
 
 export interface AppContextInterface {
+  sidebarToggleCollapse: boolean;
+  setSidebarToggleCollapse: React.Dispatch<React.SetStateAction<boolean>>;
   searchBy: any;
   setSearchBy: React.Dispatch<React.SetStateAction<any>>;
+  work: any;
+  setWork: React.Dispatch<React.SetStateAction<string>>;
+  experience: any;
+  setExperience: React.Dispatch<React.SetStateAction<string>>;
 }
 export const AppStateContext = createContext<AppContextInterface | null>(null);
 
 export const AppContextProvider = ({ children }: { children: ReactNode }) => {
-  const [searchBy, setSearchBy] = useState({ value: "name", label: "Name" });
-  const [filterBy, setFilterBy] = useState(null);
-  const [work, setWork] = useState(null);
-  const [experience, setExperience] = useState(null);
+  const [sidebarToggleCollapse, setSidebarToggleCollapse] = useState(true);
+  const [searchBy, setSearchBy] = useState("Name");
+  const [work, setWork] = useState("");
+  const [experience, setExperience] = useState("");
 
   return (
     <AppStateContext.Provider
       value={{
+        sidebarToggleCollapse,
+        setSidebarToggleCollapse,
         searchBy,
         setSearchBy,
+        work,
+        setWork,
+        experience,
+        setExperience,
       }}
     >
       {children}

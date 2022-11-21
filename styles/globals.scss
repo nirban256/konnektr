@@ -4,6 +4,8 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    -webkit-tap-highlight-color: transparent;
+
 }
 
 a {
@@ -23,4 +25,11 @@ a {
     color: white;
     background: black;
   }
+}
+
+.font_exo2 {
+  font-family: "Exo 2", sans-serif;
+}
+.font_inter {
+  font-family: 'Inter', sans-serif;
 }

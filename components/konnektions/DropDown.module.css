@@ -1,0 +1,24 @@
+.dropdownArrow{
+    position:  absolute;
+    width: 20px;
+    height: 20px;
+    clip-path: polygon(50% 48%, 5% 100%, 94% 99%);
+    z-index: 1000;
+    margin-bottom: 5px;
+    top: -19px;
+    /* left: 10px; */
+  
+}
+
+.dropdownArrow::before{
+    position: absolute;
+    content: '';
+    clip-path: polygon(50% 48%, 5% 100%, 94% 99%);
+    width: 18px;
+    height: 18px;
+    background-color:#2e303f;
+    z-index: 1000;
+    /* left: 1px; */
+    bottom: -1px;
+
+}

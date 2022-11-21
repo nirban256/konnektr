@@ -10,6 +10,7 @@ export const menuItems = [
   { id: 4, label: "Quests", icon: BsQuestionDiamondFill, link: "/quests", active: true },
   { id: 4, label: "Messages", icon: RiMessage2Fill, link: "/messages", active: false },
   { id: 6, label: "Store", icon: RiShoppingBag3Fill, link: "/store", active: false },
+  
 ];
 
 export const menuItems1 = [

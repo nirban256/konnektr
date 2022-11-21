@@ -19,7 +19,7 @@ export const Sidebar = () => {
   );
 
   const wrapperClasses = classNames(
-    "h-screen pt-1 bg-light flex justify-between flex-col transition-all duration-500 bg-bgBlack1 rounded-tr-3xl rounded-br-3xl",
+    "h-screen pt-1 bg-light hidden lg:flex justify-between flex-col transition-all duration-500 bg-bgBlack1 rounded-tr-3xl rounded-br-3xl overflow-hidden",
     {
       ["w-80"]: !sidebarToggleCollapse,
       ["w-20"]: sidebarToggleCollapse,
@@ -35,7 +35,7 @@ export const Sidebar = () => {
     return classNames(
       "flex items-center cursor-pointer hover:bg-bgGrey2 overflow-hidden whitespace-nowrap transition-all duration-500 rounded my-0.5",
       {
-        ["bg-bgGrey1 bg-opacity-15"]: activeMenu.id === menu.id,
+        ["bg-bgGrey1 bg-opacity-15"]: activeMenu?.id === menu.id,
       }
     );
   };
@@ -197,6 +197,7 @@ export const Sidebar = () => {
           })}
         </div>
         <div
+          onClick={() => router.push("/profile")}
           className="flex items-center mt-3 rounded gap-3 bg-bgGrey2 hover:bg-white hover:bg-opacity-10 px-4 h-20 cursor-pointer w-full transition-all duration-300 rounded-br-3xl"
           id="sidebar-profile"
         >
@@ -204,7 +205,7 @@ export const Sidebar = () => {
             src="assets/images/avatar13.jpg"
             alt="Profile Image"
             className="w-11 h-11 rounded-full object-cover inline-block"
-            style={{width: "44px", height: "44px"}}
+            style={{ width: "44px", height: "44px" }}
           />
           {!sidebarToggleCollapse && (
             <div className={`h-12 overflow-hidden`}>

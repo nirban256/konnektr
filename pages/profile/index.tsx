@@ -1,100 +1,264 @@
+import { TextInput } from "@mantine/core";
 import { NextPage } from "next";
-import React from "react";
-import { AiOutlineMessage } from "react-icons/ai";
-import { BiShareAlt } from "react-icons/bi";
+import { useRouter } from "next/router";
+import React, { useState } from "react";
+import { AiFillMessage, AiOutlineMessage } from "react-icons/ai";
+import { FaSearch } from "react-icons/fa";
+import { MdOutlineModeEditOutline } from "react-icons/md";
+import GradientButton from "../../components/konnektions/GradientButton";
+import CommunityListItem from "../../components/profile/CommunityListItem";
+import FollowerSectionItem from "../../components/profile/FollowerSectionItem";
+import Header from "../../components/profile/Header";
+import SharedPosts from "../../components/profile/SharedPosts";
+import Tag from "../../components/profile/Tags";
+import { useAppStateContext } from "../../context/contextProvider";
 import DashboardLayout from "../../layout/dashboard";
 
 const Profile: NextPage = () => {
+  const {
+    // @ts-ignore
+    sidebarToggleCollapse,
+  } = useAppStateContext();
+
+  const [tags, setTags] = useState<string[]>(Array(4).fill("GraphQL"));
+  const router = useRouter();
+
   return (
     <DashboardLayout>
-      <div className="w-[100%] h-[100vh] flex flex-col items-center justify-start bg-bgGrey1 box-border">
-        <div className="relative w-[97%] h-[30%] max-h-[358px] bg-cover-image bg-no-repeat bg-center bg-cover  -mt-4">
-          <img
-            src="/assets/images/avatar12.jpg"
-            alt="profilepic"
-            className="absolute -bottom-[7.5vw] left-7 min-h-[150px] min-w-[150px] w-[15vw] h-[15vw] rounded-full border-[10px] border-bgGrey1"
-          />
-        </div>
-        <div className="w-[97%] h-[14%] flex items-center justify-between box-border pl-[18vw]">
-          <div className="w-[30%] h-[100%] flex flex-col items-start justify-center ">
-            <span className="text-[2vw] text-white ">Vitalic Buterin</span>
-            <span className="text-[1.3vw] text-textGray">@eth_is_better</span>
-          </div>
-          <div className="w-[50%] h-[100%] flex items-center justify-between">
-            <div className="w-auto h-[100%] flex flex-col items-center justify-center">
-              <span className="text-[1.5vw] text-white ">Konnektions</span>
-              <span className="text-[1.3vw] text-textGray">100+</span>
+      <div className="w-[100%] h-[100vh] flex flex-col sm:flex-row items-start justify-between bg-white pb-16 sm:pb-0 box-border overflow-hidden">
+        <Header />
+        <div className="h-full w-full sm:w-[68%] flex flex-col items-center justify-start overflow-y-scroll scrollbar-hide pr-0 sm:pr-1 box-border">
+          <div className="w-full h-[70vh] flex flex-col items-center justify-start">
+            <div className="relative w-[100%] h-[30vh] max-h-[110px] sm:max-h-[160px] bg-bgCover  bg-no-repeat bg-center bg-cover rounded-t-[30px]">
+              <img
+                src="/assets/images/image.png"
+                alt="profilepic"
+                className="absolute left-4 -bottom-[40px] sm:-bottom-[50px] w-[80px] h-[80px] sm:w-[100px] sm:h-[100px] rounded-full"
+              />
+              <div className="absolute top-4 right-4 w-[50px] h-[18px] rounded-[100px] bg-bgCoverDark flex items-center justify-center ">
+                <MdOutlineModeEditOutline
+                  size={11}
+                  color="black"
+                  className="mr-1"
+                />
+                <h1 className="text-[0.5rem] text-black mt-[1px]">Edit</h1>
+              </div>
             </div>
-            <div className="w-auto h-[100%] flex flex-col items-center justify-center">
-              <span className="text-[1.5vw] text-white ">Followers</span>
-              <span className="text-[1.3vw] text-textGray">20</span>
+            <div
+              className={`self-end ${
+                sidebarToggleCollapse ? "w-[70%] sm:w-[85%]" : "w-[82%]"
+              } h-[6vh] sm:h-[12vh] bg-transparent flex items-center justify-between duration-500`}
+            >
+              <div className="w-[30%] h-full flex flex-col items-start justify-evenly pl-1 box-border">
+                <h1 className="text-sideBarLink text-[0.9rem] sm:text-[1.5rem] font-bold">
+                  Shivrajjj
+                </h1>
+                <h1 className="text-sideBarLink text-[0.75rem] font-light">
+                  @kewcoder
+                </h1>
+              </div>
+              <div className="flex items-center sm:items-start justify-evenly w-[60%] sm:w-[30%] h-full pt-[1%] box-border ">
+                <GradientButton classname="w-[20%] min-w-[80px] sm:w-[50%]  sm:min-w-[100px] sm:max-w-[150px] h-[60%] min-h-[25px] max-h-[30px]  sm:max-h-[30px] rounded-[20px] text-white text-[0.8rem] font-bold ">
+                  Konnekt
+                </GradientButton>
+                <button className="min-w-[35px]  sm:min-w-[70px] sm:max-w-[130px] h-[60%] min-h-[30px] sm:min-h-[30px] max-h-[30px] sm:max-h-[32px] rounded-[20px] flex items-center justify-center bg-bgDropDown">
+                  <AiOutlineMessage
+                    className="hidden sm:flex text-black"
+                    size={20}
+                  />
+                  <AiOutlineMessage
+                    className="flex sm:hidden text-black"
+                    size={17}
+                  />
+                </button>
+              </div>
             </div>
-            <div className="w-auto h-[100%] flex flex-col items-center justify-center">
-              <span className="text-[1.5vw] text-white ">Communities</span>
-              <span className="text-[1.3vw] text-textGray">20+</span>
-            </div>
-          </div>
-        </div>
-        <div className="w-[97%] h-[25%] flex items-start justify-between px-[3vw] box-border">
-          <div className=" w-[60%] h-[50%] flex flex-col items-start justify-start ">
-            <p className="text-textGray text-[1.7vw] my-[3%]">
-              Blockchain | LearnWeb3Dao | intern @BuildSpace | Code is law |
-              web3 Developer | Building konnektr
+            <p
+              className={`self-start ${
+                sidebarToggleCollapse
+                  ? "max-w-[90%] sm:max-w-[50%]"
+                  : "max-w-[60%]"
+              } mt-3 mb-0 sm:mb-2 font-light text-[0.85rem] sm:text-[0.97rem] text-profileDesc duration-500`}
+            >
+              Blockchain | LearnWeb3dao | Intern @Buildspace | Code is law ✌ |
+              Web3 Developer | Building Konnektr
             </p>
-            <div className="w-[70%] h-[50%] flex  items-center justify-start cursor-pointer">
-              <button className="text-white bg-gradient-to-r from-gradient1 to-gradient2 h-[40px] w-[30%] min-w-[150px] rounded-md">
-                Konnekt
-              </button>
-              <div className="flex items-center justify-center h-[40px] w-[30%] min-w-[150px] p-[2px] box-border bg-gradient-to-r from-gradient1 to-gradient2 rounded-md mx-5 cursor-pointer">
-                <div className="w-full h-full flex items-center justify-center text-white rounded-md  bg-bgGrey1">
-                  <AiOutlineMessage size={23} className="mr-2" />
-                  <span className="">Message</span>
-                </div>
+            <div className="w-full h-[12vh] flex items-center justify-between my-1">
+              <div
+                className={`${
+                  sidebarToggleCollapse ? "w-[65%] sm:w-[40%]" : "w-[50%]"
+                } h-full flex items-center sm:items-start justify-between duration-500`}
+              >
+                <FollowerSectionItem title="Followers" value={100} />
+                <FollowerSectionItem title="Following" value={20} />
+                <FollowerSectionItem title="Communities" value={"20+"} />
               </div>
-              <BiShareAlt size={30} color="white" className="ml-3" />
+              <div className="w-[30%] sm:w-[20%] h-full flex items-center justify-between pr-1 box-border">
+                <button className="w-[40%] max-w-[65px] h-full max-h-[50px] rounded-[10px] bg-bgCover flex flex-col items-center justify-center">
+                  <img
+                    src="/assets/svg/walletmoney.svg"
+                    alt=""
+                    className="h-[18px] sm:h-[25px] w-[18px] sm:w-[25px] "
+                  />
+                  <h1 className="text-sideBarLink font-semibold text-[0.5rem] leading-[9px]">
+                    Connect
+                    <br />
+                    Wallet
+                  </h1>
+                </button>
+                <button className="w-[40%] max-w-[65px] h-full max-h-[50px] rounded-[10px] bg-bgCover flex flex-col items-center justify-center">
+                  <img
+                    src="/assets/svg/global.svg"
+                    alt=""
+                    className="h-[18px] sm:h-[25px] w-[18px] sm:w-[25px] "
+                  />
+                  <h1 className="text-sideBarLink font-semibold text-[0.5rem] leading-[9px]">
+                    Place in
+                    <br />
+                    Internet
+                  </h1>
+                </button>
+              </div>
+            </div>
+            <div
+              className={`self-start ${
+                tags.length == 4
+                  ? `${
+                      sidebarToggleCollapse
+                        ? "w-[80%] sm:w-[60%]"
+                        : " sm:w-[70%]"
+                    }`
+                  : `${sidebarToggleCollapse ? "w-full sm:w-[70%]" : "w-[78%]"}`
+              } min-h-[8vh] grid ${
+                tags.length == 4 ? "grid-cols-3" : "grid-cols-4"
+              } gap-x-3 gap-y-2 duration-100  sm:mb-7`}
+            >
+              {tags.map((item, index) => (
+                <Tag key={index} name={item} />
+              ))}
+              <h1
+                onClick={() =>
+                  setTags(
+                    tags.length == 4
+                      ? Array(10).fill("GraphQL")
+                      : Array(4).fill("GraphQL")
+                  )
+                }
+                className="cursor-pointer text-sideBarLink font-light text-[0.7rem] pt-2"
+              >
+                {tags.length == 4 ? "see more" : "see less"}
+              </h1>
             </div>
           </div>
-          <div className="w-[40%] flex flex-col items-end justify-center">
-            <div className="flex items-center justify-center h-[40px] w-[40%] min-w-[150px] p-[2px] box-border bg-gradient-to-r from-gradient1 to-gradient2 rounded-3xl my-[3%] cursor-pointer">
-              <div className=" w-full h-full rounded-3xl text-white  text-[1rem] flex items-center justify-center bg-bgGrey1">
-                Place in internet
-              </div>
-            </div>
-            <div className="flex items-center justify-center h-[40px] w-[40%] min-w-[150px] p-[2px] box-border bg-gradient-to-r from-gradient1 to-gradient2 rounded-3xl cursor-pointer">
-              <div className=" w-full h-full rounded-3xl text-white  text-[1rem] flex items-center justify-center bg-bgGrey1">
-                wallet : 0x345od..
-              </div>
-            </div>
+          <h1 className="self-start text-sideBarLink font-bold text-[1rem] sm:text-[0.97rem] mt-2 sm:mt-1 mb-5">
+            Shared Posts
+          </h1>
+          <div className="w-full flex flex-col items-center justify-start gap-y-4">
+            <SharedPosts
+              name="Shivrajj"
+              username="shivrx.lens"
+              content="Hello guys, this is my peraonal portfolio website, i creating with html css and javascript. demo at , thank u . #webdev"
+            />
+            <SharedPosts
+              name="Shivrajj"
+              username="shivrx.lens"
+              content="Hello guys, this is my peraonal portfolio website, i creating with html css and javascript. demo at , thank u . #webdev"
+              image={"/assets/images/web3Bharat.png"}
+            />
+            <SharedPosts
+              name="Shivrajj"
+              username="shivrx.lens"
+              content="Hello guys, this is my peraonal portfolio website, i creating with html css and javascript. demo at , thank u . #webdev"
+            />
+            <SharedPosts
+              name="Shivrajj"
+              username="shivrx.lens"
+              content="Hello guys, this is my peraonal portfolio website, i creating with html css and javascript. demo at , thank u . #webdev"
+              image={"/assets/images/web3Bharat.png"}
+            />
           </div>
         </div>
-        <div className="self-start w-[60%] h-[15%] ml-[4vw] grid grid-cols-7 gap-x-3 my-2">
-          <Tag name="GraphQL" />
-          <Tag name="GraphQL" />
-          <Tag name="GraphQL" />
-          <Tag name="GraphQL" />
-          <Tag name="GraphQL" />
-          <Tag name="GraphQL" />
-          <Tag name="GraphQL" />
-          <Tag name="GraphQL" />
-          <Tag name="GraphQL" />
-          <Tag name="GraphQL" />
-          <span className="pt-3 ml-2 text-white text-[1.1vw]">See more..</span>
-        </div>
+        <section className=" hidden h-full w-[30%] sm:flex flex-col items-center justify-start">
+          <div className="w-full h-[10%] flex items-center justify-between">
+            <TextInput
+              sx={{ color: "white" }}
+              variant="unstyled"
+              className="rounded-lg"
+              placeholder="Search"
+              icon={<FaSearch className="text-sideBarLink ml-4" size={22} />}
+              classNames={{
+                input: `w-[70%] ${
+                  sidebarToggleCollapse ? "min-w-[210px]" : "min-w-[180px]"
+                } h-[50px] rounded-[30px] bg-bgDropDown text-black pl-5 placeholder:text-sideBarLink placeholder:font-bold  pl-[4vw] duration-500`,
+              }}
+            />
+            <button
+              onClick={() => router.push("/messages")}
+              className="w-[20%] min-w-[90px] h-[50px] rounded-[30px] flex items-center justify-center bg-bgDropDown"
+            >
+              <img
+                src="/assets/svg/message.svg"
+                alt=""
+                className="h-[25px] w-[25px]"
+              />
+            </button>
+          </div>
+          <div className="mt-3 w-full h-[50vh] bg-bgDropDown rounded-[30px] flex flex-col items-center overflow-y-scroll scrollbar-hide justify-start">
+            <h1 className="self-start ml-4 text-communityheading text-[1.35rem] font-bold mt-4 mb-2">
+              Your Communities
+            </h1>
+            {/* <div className="flex flex-col items-center justify-start w-full  "> */}
+            <CommunityListItem
+              title="Chainlink"
+              image={"/assets/svg/chainlink.svg"}
+            />
+            <CommunityListItem
+              title="Polygon"
+              image={"/assets/svg/polygon.svg"}
+            />
+            <CommunityListItem
+              title="Web3 Bharat"
+              image={"/assets/images/web3Bharat.png"}
+            />
+            <CommunityListItem
+              title="Build Space"
+              image={"/assets/svg/buildspace.svg"}
+            />
+            <CommunityListItem
+              title="Chainlink"
+              image={"/assets/svg/chainlink.svg"}
+            />
+            <CommunityListItem
+              title="Polygon"
+              image={"/assets/svg/polygon.svg"}
+            />
+            <CommunityListItem
+              title="Web3 Bharat"
+              image={"/assets/images/web3Bharat.png"}
+            />
+            <CommunityListItem
+              title="Build Space"
+              image={"/assets/svg/buildspace.svg"}
+            />
+            {/* </div> */}
+          </div>
+          <div className="w-full h-[30vh] flex flex-col items-center justify-evenly border-[1px] border-goldBorder bg-goldBg rounded-[30px] mt-2 px-[8%] py-[3%] box-border">
+            <h1 className="self-start text-goldText font-bold text-[1.1rem] mb-2">
+              Beta warning!
+            </h1>
+            <p className="text-[0.8rem] text-lightGold font-light mt-1 mb-3 ">
+              Konnektr is still in the beta phase,things may break,please handle
+              us with care.
+            </p>
+            <p className="text-[0.9rem] font-semibold text-profileDesc">
+              © 2022 konnektr Privacy Discord Donate Status Vote Feedback hanks
+              GitHub▲ Powered by Vercel
+            </p>
+          </div>
+        </section>
       </div>
     </DashboardLayout>
   );
 };
 
 export default Profile;
-
-type tag = {
-  name: string;
-};
-
-function Tag({ name }: tag) {
-  return (
-    <div className="w-[100%] h-[35px] rounded-[100px] border-tagBorder border-[3px] flex items-center justify-center text-[1vw] text-tagText cursor-pointer">
-      {name}
-    </div>
-  );
-}

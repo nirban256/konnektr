@@ -7,11 +7,14 @@ import {
   createStyles,
 } from "@mantine/core";
 import { Carousel } from "@mantine/carousel";
-import { FaChevronDown, FaSearch, FaTags, FaUser } from "react-icons/fa";
+import { FaSearch, FaTags, FaUser } from "react-icons/fa";
+import { AiFillMessage } from "react-icons/ai";
 import { useAppStateContext } from "../context/contextProvider";
 import UserCard from "../components/konnektions/UserCard";
 import DashboardLayout from "../layout/dashboard";
 import CustomDropDown from "../components/konnektions/CustomDropDown";
+import Header from "../components/profile/Header";
+import { useRouter } from "next/router";
 
 const data = [
   { value: "react", label: "React" },
@@ -47,7 +50,7 @@ const konnektions = () => {
     setExperience,
   } = useAppStateContext();
   const [width, setWidth] = useState<number>(0);
-
+  const router = useRouter();
   useEffect(() => {
     if (typeof window !== undefined) {
       setWidth(window.innerWidth);
@@ -57,345 +60,197 @@ const konnektions = () => {
 
   return (
     <DashboardLayout>
-      <div className="w-[100%] h-[100%] bg-bgGrey1 flex flex-col items-center justify-start box-border pb-6 pt-3">
-        <div className="flex items-center justify-start w-full h-[45px] pl-0 sm:pl-5 box-border">
-          {searchBy === "Name" ? (
-            <TextInput
-              sx={{ color: "white" }}
-              variant="unstyled"
-              className="rounded-lg "
-              placeholder="Search by name"
-              classNames={{
-                input:
-                  "text-white w-[45vw] sm:w-[100%] min-w-[35vw] bg-bgGrey2 rounded-md pl-2 ",
-              }}
-            />
-          ) : (
-            <MultiSelect
-              data={data}
-              placeholder="Search by tags"
-              rightSection={<></>}
-              classNames={{
-                input:
-                  "w-[45vw] sm:w-[100%] min-w-[35vw] bg-bgGrey2 border-none rounded-md",
-                dropdown: "bg-bgGrey2 border-none",
-                item: "text-white hover:text-black",
-              }}
-              styles={(theme) => ({
-                rightSection: { pointerEvents: "none" },
-                item: {
-                  // applies styles to selected item
-                  "&[data-selected]": {
-                    "&, &:hover": {
-                      backgroundColor:
-                        theme.colorScheme === "dark"
-                          ? theme.white
-                          : theme.white,
-                      color:
-                        theme.colorScheme === "dark"
-                          ? theme.white
-                          : theme.black,
+      <div className="w-[100%] h-[100%] bg-bgMain flex flex-col items-center justify-start box-border pb-16 sm:pb-6 pt-0 sm:pt-3">
+        <Header />
+        <div className="flex items-center justify-between w-full h-[50px] pl-0 sm:pl-5  box-border">
+          <div className="flex items-center justify-between sm:justify-start h-full w-full sm:w-[90%]">
+            {searchBy === "Name" ? (
+              <TextInput
+                sx={{ color: "white" }}
+                variant="unstyled"
+                className="rounded-lg"
+                placeholder="Search by name"
+                rightSection={
+                  <img
+                    src="/assets/svg/documentfilter.svg"
+                    className="flex sm:hidden h-[20px] w-[20px] mr-2"
+                  />
+                }
+                icon={<FaSearch className="text-sideBarLink ml-4" size={22} />}
+                classNames={{
+                  input:
+                    "text-white w-[90vw] sm:w-[35vw] h-[38px] sm:h-[50px] sm:w-[100%] min-w-[40vw] sm:min-w-[30vw] bg-bgSearchbar rounded-[30px] pl-[50px] ",
+                }}
+              />
+            ) : (
+              <MultiSelect
+                data={data}
+                placeholder="Search by tags"
+                rightSection={
+                  <img
+                    src="/assets/svg/documentfilter.svg"
+                    className="flex sm:hidden h-[20px] w-[20px] mr-2"
+                  />
+                }
+                classNames={{
+                  input:
+                    "w-[90vw] sm:w-[35vw] sm:w-[100%] h-[38px] sm:h-[50px] min-w-[40vw] sm:min-w-[30vw] bg-bgSearchbar border-none rounded-[30px] pl-[50px] pt-2 box-border",
+                  dropdown: "bg-gray-100 border-none scrollbar-hide",
+                  item: "text-black hover:text-black bg-transparent w-full",
+                }}
+                icon={<FaSearch className="text-sideBarLink ml-4" size={22} />}
+                styles={(theme) => ({
+                  rightSection: { pointerEvents: "none" },
+                  item: {
+                    // applies styles to selected item
+                    "&[data-selected]": {
+                      "&, &:hover": {
+                        backgroundColor:
+                          theme.colorScheme === "dark"
+                            ? theme.white
+                            : theme.white,
+                        color:
+                          theme.colorScheme === "dark"
+                            ? theme.white
+                            : theme.black,
+                      },
                     },
-                  },
 
-                  // applies styles to hovered item (with mouse or keyboard)
-                  "&[data-hovered]": {},
-                },
-              })}
-            />
-          )}
-          <Button
-            variant="filled"
-            className="w-[7vw] bg-gradient-to-r from-gradient1 to-gradient2 text-white rounded-tl-none rounded-bl-none hover:bg-selectBorder -ml-1 flex items-center justify-center"
-          >
-            <span className="hidden sm:block">Search</span>
-            <FaSearch size={17} color="white" className="block sm:hidden" />
-          </Button>
-          {/* <div className="hidden sm:flex sm:mr-2 p-[1px] bg-gradient-to-r from-gradient1 to-gradient2">
-            <Select
-              className=""
-              classNames={{
-                dropdown:
-                  "w-28 text-white bg-bgGrey2 hover:bg-bgGrey2 border-0",
-                input:
-                  "rounded-md bg-bgInput hover:bg-bgInput border-none ml-5 h-10 min-w-[120px] w-[10vw] text-white selected:bg-white",
-                item: "text-white hover:text-black hover:bg-white my-1",
-              }}
-              placeholder="Search By"
-              styles={(theme) => ({
-                rightSection: { pointerEvents: "none" },
-                item: {
-                  // applies styles to selected item
-                  "&[data-selected]": {
-                    "&, &:hover": {
-                      backgroundColor:
-                        theme.colorScheme === "dark"
-                          ? theme.white
-                          : theme.white,
-                      color:
-                        theme.colorScheme === "dark"
-                          ? theme.white
-                          : theme.black,
-                    },
+                    // applies styles to hovered item (with mouse or keyboard)
+                    "&[data-hovered]": {},
                   },
-
-                  // applies styles to hovered item (with mouse or keyboard)
-                  "&[data-hovered]": {},
-                },
-              })}
-              rightSection={<FaChevronDown size={14} color="white" />}
+                })}
+              />
+            )}
+            <CustomDropDown
+              className="hidden sm:flex"
               data={[
                 { value: "name", label: "Name" },
                 { value: "tags", label: "Tags" },
               ]}
-              onSearchChange={(value) => {
-                setSearchBy(value);
+              placeholder="SearchBy"
+              onChangeFirst={(data) => {
+                setSearchBy(data);
               }}
-              searchValue={searchBy.value}
+              currentValueforFirst={searchBy}
+              onChangeSecond={undefined}
+              onChangeThird={undefined}
             />
-          </div> */}
-          <CustomDropDown
-            className="hidden sm:flex"
-            data={[
-              { value: "name", label: "Name" },
-              { value: "tags", label: "Tags" },
-            ]}
-            placeholder="SearchBy"
-            onChangeFirst={(data) => {
-              setSearchBy(data);
-            }}
-            currentValueforFirst={searchBy}
-            onChangeSecond={undefined}
-            onChangeThird={undefined}
-          />
-          <CustomDropDown
-            className="hidden lg:flex"
-            data={[
-              { value: "student", label: "Student" },
-              { value: "experienced", label: "Experienced" },
-              { value: "fresher", label: "Fresher" },
-            ]}
-            placeholder="Work"
-            onChangeFirst={(data) => {
-              setWork(data);
-            }}
-            currentValueforFirst={work}
-            onChangeSecond={undefined}
-            onChangeThird={undefined}
-          />
-          <CustomDropDown
-            className="hidden sm:hidden lg:flex"
-            data={[
-              { value: "1-2yr", label: "1-2 years" },
-              { value: "2-3yr", label: "2-3 years" },
-            ]}
-            placeholder="Experience"
-            onChangeFirst={(data) => {
-              setExperience(data);
-            }}
-            currentValueforFirst={experience}
-            onChangeSecond={undefined}
-            onChangeThird={undefined}
-          />
-          {/* <Select
-            className="hidden lg:flex"
-            classNames={{
-              dropdown: "w-28 text-white bg-bgGrey2 hover:bg-bgGrey2 border-0",
-              input:
-                "rounded-md bg-bgInput hover:bg-bgInput border-2 border-selectBorder ml-5 h-10 min-w-[100px] w-[10vw] text-white selected:bg-white",
-              item: "text-white hover:text-black hover:bg-white226FEE my-1",
-            }}
-            placeholder="work"
-            styles={(theme) => ({
-              rightSection: { pointerEvents: "none" },
-              item: {
-                // applies styles to selected item
-                "&[data-selected]": {
-                  "&, &:hover": {
-                    backgroundColor:
-                      theme.colorScheme === "dark" ? theme.white : theme.white,
-                    color:
-                      theme.colorScheme === "dark" ? theme.white : theme.black,
-                  },
-                },
-
-                // applies styles to hovered item (with mouse or keyboard)
-                "&[data-hovered]": {},
-              },
-            })}
-            rightSection={<FaChevronDown size={14} color="white" />}
-            data={[
-              { value: "student", label: "Student" },
-              { value: "experienced", label: "Experienced" },
-              { value: "fresher", label: "Fresher" },
-            ]}
-            onSearchChange={(value) => {
-              // setSearchBy(value);
-            }}
-            searchValue={searchBy.value}
-          /> */}
-          <div
-            className="flex flex-col  items-center justify-center ml-[10px] min-w-[39px] mr-1 w-[8vw] h-[39px] rounded-lg bg-gradient-to-r from-gradient1 to-gradient2 sm:hidden p-[1px] box-border "
-            onClick={() => {
-              if (searchBy === "Name") {
-                setSearchBy("Tags");
-              } else {
-                setSearchBy("Name");
-              }
-            }}
-          >
-            <div className="h-full w-full flex items-center justify-center rounded-lg bg-bgInput">
+            <CustomDropDown
+              className="hidden lg:flex"
+              data={[
+                { value: "student", label: "Student" },
+                { value: "experienced", label: "Experienced" },
+                { value: "fresher", label: "Fresher" },
+              ]}
+              placeholder="Work"
+              onChangeFirst={(data) => {
+                setWork(data);
+              }}
+              currentValueforFirst={work}
+              onChangeSecond={undefined}
+              onChangeThird={undefined}
+            />
+            <CustomDropDown
+              className="hidden sm:hidden lg:flex"
+              data={[
+                { value: "1-2yr", label: "1-2 years" },
+                { value: "2-3yr", label: "2-3 years" },
+              ]}
+              placeholder="Experience"
+              onChangeFirst={(data) => {
+                setExperience(data);
+              }}
+              currentValueforFirst={experience}
+              onChangeSecond={undefined}
+              onChangeThird={undefined}
+            />
+            {/* <div
+              className=" ml-[0px] min-w-[39px] mr-1 w-[8vw] h-[39px] flex items-center justify-center rounded-lg bg-bgDropDown sm:hidden p-[1px] box-border "
+              onClick={() => {
+                if (searchBy === "Name") {
+                  setSearchBy("Tags");
+                } else {
+                  setSearchBy("Name");
+                }
+              }}
+            >
               {searchBy === "Name" ? (
-                <FaTags color="white" size={16} />
+                <FaTags className="text-sideBarLink" size={16} />
               ) : (
-                <FaUser color="white" size={16} />
+                <FaUser className="text-sideBarLink" size={16} />
               )}
-            </div>
+            </div> */}
+            {/* <CustomDropDown
+              className="block lg:hidden  mx-[5px] min-w-[70px] max-w-[100px]"
+              firstSectionTitle={"Work"}
+              data={[
+                { value: "student", label: "Student" },
+                { value: "experienced", label: "Experienced" },
+                { value: "fresher", label: "Fresher" },
+              ]}
+              placeholder="Filter"
+              onChangeFirst={(data) => {
+                setWork(data);
+              }}
+              secondSectionTitle={"Experience"}
+              dataSecondSection={[
+                { value: "1-2yr", label: "1-2 years" },
+                { value: "2-3yr", label: "2-3 years" },
+              ]}
+              currentValueforFirst={work}
+              currentValueforSecond={experience}
+              mobile={true}
+              onChangeSecond={(data: any) => {
+                setExperience(data);
+              }}
+              onChangeThird={undefined}
+            /> */}
           </div>
-          <CustomDropDown
-            className="block lg:hidden  mx-[5px] min-w-[70px] max-w-[100px]"
-            firstSectionTitle={"Work"}
-            data={[
-              { value: "student", label: "Student" },
-              { value: "experienced", label: "Experienced" },
-              { value: "fresher", label: "Fresher" },
-            ]}
-            placeholder="Filter"
-            onChangeFirst={(data) => {
-              setWork(data);
-            }}
-            secondSectionTitle={"Experience"}
-            dataSecondSection={[
-              { value: "1-2yr", label: "1-2 years" },
-              { value: "2-3yr", label: "2-3 years" },
-            ]}
-            currentValueforFirst={work}
-            currentValueforSecond={experience}
-            mobile={true}
-            onChangeSecond={(data: any) => {
-              setExperience(data);
-            }}
-            onChangeThird={undefined}
-          />
-          {/* <Select
-            className="block lg:hidden"
-            classNames={{
-              dropdown: "w-28 text-white bg-bgGrey2 hover:bg-bgGrey2 border-0",
-              input:
-                "rounded-md bg-bgInput hover:bg-bgInput border-2 border-selectBorder ml-5 h-10 min-w-[90px] w-[100%] text-white selected:bg-white",
-              item: "text-white hover:text-black hover:bg-white226FEE my-1",
-            }}
-            placeholder="Filter "
-            styles={(theme) => ({
-              rightSection: { pointerEvents: "none" },
-              wrapper: {
-                width: "90px",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "flex-end",
-              },
-              item: {
-                // applies styles to selected item
-                "&[data-selected]": {
-                  "&, &:hover": {
-                    backgroundColor:
-                      theme.colorScheme === "dark" ? theme.white : theme.white,
-                    color:
-                      theme.colorScheme === "dark" ? theme.white : theme.black,
-                  },
-                },
-
-                // applies styles to hovered item (with mouse or keyboard)
-                "&[data-hovered]": {},
-              },
-            })}
-            rightSection={<FaChevronDown size={14} color="white" />}
-            data={[
-              { value: "student", label: "Student" },
-              { value: "experienced", label: "Experienced" },
-              { value: "fresher", label: "Fresher" },
-            ]}
-            onSearchChange={(value) => {
-              // setSearchBy(value);
-            }}
-            searchValue={searchBy.value}
-          /> */}
-          {/* <Select
-            className="hidden sm:hidden lg:flex"
-            classNames={{
-              dropdown: "w-28 text-white bg-bgGrey2 hover:bg-bgGrey2 border-0",
-              input:
-                "rounded-xl bg-bgInput hover:bg-bgInput border-2 border-selectBorder ml-5 h-10 min-w-[120px] w-[10vw] text-white selected:bg-white",
-              item: "text-white hover:text-black hover:bg-white my-1",
-            }}
-            placeholder="Experience"
-            styles={(theme) => ({
-              rightSection: { pointerEvents: "none" },
-              item: {
-                // applies styles to selected item
-                "&[data-selected]": {
-                  "&, &:hover": {
-                    backgroundColor:
-                      theme.colorScheme === "dark" ? theme.white : theme.white,
-                    color:
-                      theme.colorScheme === "dark" ? theme.white : theme.black,
-                  },
-                },
-
-                // applies styles to hovered item (with mouse or keyboard)
-                "&[data-hovered]": {},
-              },
-            })}
-            rightSection={<FaChevronDown size={14} color="white" />}
-            data={[
-              { value: "1-2yr", label: "1-2 years" },
-              { value: "2-3yr", label: "2-3 years" },
-            ]}
-            onSearchChange={(value) => {
-              // setSearchBy(value);
-            }}
-            searchValue={searchBy.value}
-          /> */}
+          <button
+            onClick={() => router.push("/messages")}
+            className="hidden  w-[11%] h-[50px] max-w-[120px] sm:flex items-center justify-center rounded-[30px] bg-bgDropDown ml-4"
+          >
+            <AiFillMessage size={22} className="" />
+          </button>
         </div>
-        <h1 className="text-[18px] ml-2 sm:ml-7 mt-0  sm:text-heading mb-1  text-white font-normal self-start sm:mt-2">
+        {/* <h1 className="text-[18px] ml-2 sm:ml-7 mt-0  sm:text-heading mb-1  text-white font-normal self-start sm:mt-2">
           Top Picks
         </h1>
-        <div className="w-[100%] sm:w-[95%] lg:h-[40%]  flex overflow-x-scroll scrollbar-hide  box-border mt-0 sm:mt-2">
-          {/* Carousel */}
+        <div
+          className={`w-[100%] sm:w-[95%] lg:h-[40%]  flex overflow-x-scroll scrollbar-hide  box-border mt-0 sm:mt-2`}
+        >
           <Carousel
             className="h-full"
             slideGap="md"
-            slideSize={width * 0.04}
+            slideSize={width * 0.02}
             loop
             align="start"
             slidesToScroll={1}
             classNames={classes}
           >
-            {Array(15)
+            {Array(30)
               .fill(null)
               .map((_, index) => (
                 <Carousel.Slide>
                   <UserCard
                     name="Shivraj"
                     description="Web3 Developer"
-                    profileImageURL={`/assets/images/avatar1.jpg`}
+                    profileImageURL={`/assets/images/avatar8.jpg`}
                     isVerified={index % 3 == 0 ? true : false}
                   />
                 </Carousel.Slide>
               ))}
 
-            {/* ...other slides */}
           </Carousel>
-        </div>
-        <h1 className="text-[18px] ml-2 sm:ml-7 sm:text-heading my-1 text-white font-normal self-start mt-0 sm:mt-2">
-          Users
-        </h1>
+        </div> */}
+
         <div
-          className={`w-[100%] sm:w-[95%] min-h-[35%] grid grid-cols-2 sm:grid-cols-3 gap-x-5 md:grid-cols-4 md850:grid-cols-5 ${
+          className={`w-[100%] sm:w-[95%] min-h-[35%] grid grid-cols-2 sm:mt-20 sm:grid-cols-3 gap-x-5 md:grid-cols-3 md850:grid-cols-4 ${
             sidebarToggleCollapse
-              ? "lg1100:grid-cols-5 lg1200:grid-cols-5 lg1350:grid-cols-6"
-              : "lg1100:grid-cols-4 lg1200:grid-cols-4 lg1350:grid-cols-5"
-          } gap-y-5 lg:gap-y-10 scrollbar-hide box-border place-items-center lg:place-items-center mt-0 sm:mt-2`}
+              ? "lg1100:grid-cols-4 lg1200:grid-cols-5 lg1350:grid-cols-5"
+              : "lg1100:grid-cols-3 lg1200:grid-cols-4 lg1350:grid-cols-4"
+          } gap-y-5 lg:gap-y-10 scrollbar-hide box-border place-items-center lg:place-items-center mt-4 sm:mt-2`}
         >
           {Array(15)
             .fill(null)
@@ -404,7 +259,7 @@ const konnektions = () => {
                 key={index}
                 name="Shivraj"
                 description="Web3 Developer"
-                profileImageURL={`/assets/images/avatar8.jpg`}
+                profileImageURL={`/assets/images/avatar12.jpg`}
                 isVerified={index % 3 == 0 ? true : false}
               />
             ))}

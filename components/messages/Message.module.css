@@ -1,0 +1,18 @@
+.message::before {
+  position: absolute;
+  content: "";
+  clip-path: polygon(49% 69%, 0 0, 100% 0);
+  height: 15px;
+  width: 20px;
+  bottom: -14px;
+}
+
+.messages {
+  height: 100%;
+  width: 100%;
+  padding-block: 10%;
+  /* display: flex;
+  flex-direction: column;
+  justify-content: flex-start; */
+  position: relative;
+}

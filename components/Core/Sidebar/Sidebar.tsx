@@ -19,7 +19,7 @@ export const Sidebar = () => {
   );
 
   const wrapperClasses = classNames(
-    "h-screen pt-1 bg-light hidden lg:flex justify-between flex-col transition-all duration-500 bg-bgBlack1 rounded-tr-3xl rounded-br-3xl overflow-hidden",
+    "h-screen pt-1 bg-white hidden lg:flex justify-between flex-col transition-all duration-500 bg-white rounded-tr-3xl rounded-br-3xl duration-500 overflow-hidden",
     {
       ["w-80"]: !sidebarToggleCollapse,
       ["w-20"]: sidebarToggleCollapse,
@@ -33,9 +33,9 @@ export const Sidebar = () => {
     link: string;
   }) => {
     return classNames(
-      "flex items-center cursor-pointer hover:bg-bgGrey2 overflow-hidden whitespace-nowrap transition-all duration-500 rounded my-0.5",
+      "flex items-center cursor-pointer hover:bg-bgDropDown overflow-hidden whitespace-nowrap transition-all duration-500 rounded my-0.5",
       {
-        ["bg-bgGrey1 bg-opacity-15"]: activeMenu?.id === menu.id,
+        ["bg-pink-200  bg-opacity-15"]: activeMenu?.id === menu.id,
       }
     );
   };
@@ -44,8 +44,8 @@ export const Sidebar = () => {
     classNames(
       "flex py-4 px-3 items-center h-full transition-all duration-500",
       {
-        "w-60 gap-3": !sidebarToggleCollapse,
-        "w-12": sidebarToggleCollapse,
+        "w-70 gap-3": !sidebarToggleCollapse,
+        "w-16": sidebarToggleCollapse,
       }
     );
 
@@ -81,11 +81,11 @@ export const Sidebar = () => {
             <img
               src="/assets/images/konnektr_logo_white.png"
               alt="konnektr_logo"
-              className={`w-12 relative right-0.5`}
+              className={`w-7 relative right-0.5`}
             />
             <h1
               className={classNames(
-                "mt-2 ml-2 text-3xl font-semibold text-white pr-3 relative bottom-1 font_exo2",
+                "mt-2 ml-2 text-3xl font-semibold text-sideBarLink pr-3 relative bottom-1 font_exo2",
                 {
                   "opacity-0": sidebarToggleCollapse,
                   hidden: sidebarToggleCollapse,
@@ -105,7 +105,7 @@ export const Sidebar = () => {
                   placement="center"
                   position="right"
                   gutter={50}
-                  classNames={{ body: "bg-bgBlack1" }}
+                  classNames={{ body: "bg-black" }}
                 >
                   <div
                     className={classNames(getNavItemIndicatorCLasses(menu))}
@@ -118,7 +118,7 @@ export const Sidebar = () => {
                             <span className="absolute bg-badgeRed1 rounded-full w-2.5 h-2.5 right-0 -top-0.5" />
                             <Icon
                               className={`${
-                                menu.active ? "text-white" : "text-bgGrey3"
+                                menu.active ? "text-sideBarLink" : "text-black"
                               }`}
                               size={25}
                             />
@@ -126,7 +126,7 @@ export const Sidebar = () => {
                         ) : (
                           <Icon
                             className={`${
-                              menu.active ? "text-white" : "text-bgGrey3"
+                              menu.active ? "text-sideBarLink" : "text-black"
                             }`}
                             size={25}
                           />
@@ -137,7 +137,7 @@ export const Sidebar = () => {
                           className={`text-md font-medium opacity-0 ${
                             !sidebarToggleCollapse && "opacity-100"
                           } transition-all duration-500 ${
-                            menu.active ? "text-white" : "text-bgGrey3"
+                            menu.active ? "text-sideBarLink" : "text-black"
                           } font_inter`}
                         >
                           {menu.label}
@@ -152,7 +152,7 @@ export const Sidebar = () => {
         </div>
       </div>
       <div>
-        <div className="flex flex-col items-start px-4">
+        {/* <div className="flex flex-col items-start px-4">
           {menuItems1.map(({ icon: Icon, ...menu }) => {
             return (
               <div key={menu.id} className={getNavItemClasses(menu)}>
@@ -172,14 +172,14 @@ export const Sidebar = () => {
                         {menu.label === "Notifications" ? (
                           <div className="relative w-fit">
                             <span className="absolute bg-badgeRed1 rounded-full w-2.5 h-2.5 right-0" />
-                            <Icon color="white" size={25} />
+                            <Icon className="text-sideBarLink" size={25} />
                           </div>
                         ) : (
-                          <Icon color="white" size={25} />
+                          <Icon className="text-sideBarLink" size={25} />
                         )}
                       </div>
                       {!sidebarToggleCollapse && (
-                        <span className="text-md text-white font_inter">
+                        <span className="text-md text-sideBarLink font_inter">
                           {menu.label}
 
                           {menu.label === "Notifications" && (
@@ -195,10 +195,10 @@ export const Sidebar = () => {
               </div>
             );
           })}
-        </div>
+        </div> */}
         <div
           onClick={() => router.push("/profile")}
-          className="flex items-center mt-3 rounded gap-3 bg-bgGrey2 hover:bg-white hover:bg-opacity-10 px-4 h-20 cursor-pointer w-full transition-all duration-300 rounded-br-3xl"
+          className="flex items-center mt-3 rounded gap-3 bg-white hover:bg-white hover:bg-opacity-10 px-4 h-20 cursor-pointer w-full transition-all duration-300 rounded-br-3xl"
           id="sidebar-profile"
         >
           <img
@@ -209,10 +209,12 @@ export const Sidebar = () => {
           />
           {!sidebarToggleCollapse && (
             <div className={`h-12 overflow-hidden`}>
-              <p className="text-white font-semibold font_inter">
+              <p className=" font-semibold font_inter text-sideBarLink">
                 Athul Vishnu
               </p>
-              <p className="text-white text-opacity-50 font_inter">@Vichu20</p>
+              <p className="text-sideBarLink text-opacity-50 font_inter">
+                @Vichu20
+              </p>
             </div>
           )}
         </div>

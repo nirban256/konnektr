@@ -92,7 +92,7 @@ const Home: NextPage = () => {
             />
           </div>
         </div>
-        <section className=" hidden h-full w-[35%] min-w-[350px] lg:flex flex-col items-center justify-start lg1100:mr-[1%] lg1200:mr-[2%] lg1300:mr-[6%] xl1400:mr-[12%] xl1500:mr-[18%] ">
+        <section className=" hidden h-full w-[35%] min-w-[350px] lg:flex flex-col items-center justify-between ml-2 py-2 lg1100:mr-[1%] lg1200:mr-[2%] lg1300:mr-[6%] xl1400:mr-[12%] xl1500:mr-[18%] ">
           <div className="w-full h-[10%] flex items-center justify-between">
             <div
               className={`w-[70%] ${
@@ -163,6 +163,23 @@ const Home: NextPage = () => {
               status={"locked"}
             />
             {/* </div> */}
+          </div>
+          <div className="w-full h-[70px] rounded-[20px] bg-bgCover flex items-center justify-between px-5 box-border my-2">
+            <div className="w-[50%] h-full flex items-center justify-start">
+              <img
+                src="/assets/images/image.png"
+                alt=""
+                className="w-[39px] h-[50px] rounded-[30px] "
+              />
+              <h1 className="text-[1rem] text-sideBarLink font-bold ml-4 ">
+                Messages
+              </h1>
+            </div>
+            <img
+              src="/assets/svg/newmsg.svg"
+              alt=""
+              className="w-[24px] h-[24px] "
+            />
           </div>
         </section>
       </div>

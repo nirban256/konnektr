@@ -237,7 +237,7 @@ export const Sidebar = () => {
             Konnektr
           </h1>
         </div>
-        <div className="flex flex-col items-center justify-start w-full h-[50%]">
+        <div className="flex flex-col items-center justify-start w-full h-[50%] -mt-[10%]">
           {sideBarLinks.map((item, i) => (
             <div
               key={item.id}
@@ -261,7 +261,33 @@ export const Sidebar = () => {
             </div>
           ))}
         </div>
-        <div className="w-full h-[30%] flex items-center justify-start "></div>
+        <div className="w-full h-[10%] flex items-center justify-between px-4 box-border mb-5">
+          <div className="flex items-center justify-start w-[55%] h-full ">
+            <img
+              src="/assets/images/image.png"
+              alt=""
+              className="w-[39px] h-[50px] rounded-[30px] "
+            />
+            <div className="flex flex-col items-start justify-evenly w-full h-[20%] ml-2">
+              <h1 className="text-[0.9rem] text-sideBarLink font-bold ">
+                Shivrajj
+              </h1>
+              <h1 className="text-[0.78rem] text-sideBarLink font-light">
+                @kewcoder
+              </h1>
+            </div>
+          </div>
+          <img
+            src="/assets/svg/quest.svg"
+            alt=""
+            className="h-[20px] w-[20px]"
+          />
+          <img
+            src="/assets/svg/settings.svg"
+            alt=""
+            className="h-[24px] w-[24px]"
+          />
+        </div>
       </div>
     </div>
   );

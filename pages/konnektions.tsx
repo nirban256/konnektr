@@ -60,7 +60,7 @@ const konnektions = () => {
 
   return (
     <DashboardLayout>
-      <div className="w-[100%] h-[100%] bg-bgMain flex flex-col items-center justify-start box-border pb-16 sm:pb-6 pt-0 sm:pt-3">
+      <div className="w-[100%] h-[100%] bg-bgMain flex flex-col items-center justify-start box-border pb-16 sm:pb-6 pt-0 sm:pt-3 lg1100:mr-[1%] lg1200:mr-[2%] lg1300:mr-[6%] xl1400:mr-[12%] xl1500:mr-[18%]">
         <Header />
         <div className="flex items-center justify-between w-full h-[50px] pl-0 sm:pl-5  box-border">
           <div className="flex items-center justify-between sm:justify-start h-full w-full sm:w-[90%]">

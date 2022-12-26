@@ -2,8 +2,7 @@ import React, { useMemo } from "react";
 import { useRouter } from "next/router";
 import classNames from "classnames";
 import Link from "next/link";
-import { Tooltip } from "@mantine/core_old";
-import { menuItems, menuItems1 } from "../../../assets/links";
+import { menuItems, menuItems1, sideBarLinks } from "../../../assets/links";
 import { useAppStateContext } from "../../../context/contextProvider";
 
 export const Sidebar = () => {
@@ -13,10 +12,10 @@ export const Sidebar = () => {
   const { sidebarToggleCollapse, setSidebarToggleCollapse } =
     useAppStateContext();
 
-  const activeMenu: any = useMemo(
-    () => menuItems.find((menu) => menu.link === router.pathname),
-    [router.pathname]
-  );
+  // const activeMenu: any = useMemo(
+  //   () => menuItems.find((menu) => menu.link === router.pathname),
+  //   [router.pathname]
+  // );
 
   const wrapperClasses = classNames(
     "h-screen pt-1 bg-white hidden lg:flex justify-between flex-col transition-all duration-500 bg-white rounded-tr-3xl rounded-br-3xl duration-500 overflow-hidden",
@@ -27,39 +26,39 @@ export const Sidebar = () => {
     }
   );
 
-  const getNavItemClasses = (menu: {
-    id: number;
-    label: string;
-    link: string;
-  }) => {
-    return classNames(
-      "flex w-full items-center cursor-pointer hover:bg-bgDropDown overflow-hidden whitespace-nowrap transition-all duration-500 rounded my-0.5",
-      {
-        ["bg-gray-200  bg-opacity-15"]: activeMenu?.id === menu.id,
-      }
-    );
-  };
+  // const getNavItemClasses = (menu: {
+  //   id: number;
+  //   label: string;
+  //   link: string;
+  // }) => {
+  //   return classNames(
+  //     "flex w-full items-center cursor-pointer hover:bg-bgDropDown overflow-hidden whitespace-nowrap transition-all duration-500 rounded my-0.5",
+  //     {
+  //       ["bg-gray-200  bg-opacity-15"]: activeMenu?.id === menu.id,
+  //     }
+  //   );
+  // };
 
-  const getNavItemLinkClasses = () =>
-    classNames(
-      "flex py-4 px-3 items-center h-full transition-all duration-500",
-      {
-        "w-70 gap-3": !sidebarToggleCollapse,
-        "w-16": sidebarToggleCollapse,
-      }
-    );
+  // const getNavItemLinkClasses = () =>
+  //   classNames(
+  //     "flex py-4 px-3 items-center h-full transition-all duration-500",
+  //     {
+  //       "w-70 gap-3": !sidebarToggleCollapse,
+  //       "w-16": sidebarToggleCollapse,
+  //     }
+  //   );
 
-  const getNavItemIndicatorCLasses = (menu: {
-    id: number;
-    label: string;
-    link: string;
-  }) =>
-    classNames(
-      "absolute h-full bg-white bg-opacity-80 transition-all duration-500 w-1 opacity-0",
-      {
-        "opacity-100": menu.link === router.pathname && !sidebarToggleCollapse,
-      }
-    );
+  // const getNavItemIndicatorCLasses = (menu: {
+  //   id: number;
+  //   label: string;
+  //   link: string;
+  // }) =>
+  //   classNames(
+  //     "absolute h-full bg-white bg-opacity-80 transition-all duration-500 w-1 opacity-0",
+  //     {
+  //       "opacity-100": menu.link === router.pathname && !sidebarToggleCollapse,
+  //     }
+  //   );
 
   return (
     <div
@@ -72,7 +71,7 @@ export const Sidebar = () => {
       //   setSidebarToggleCollapse(true);
       // }}
     >
-      <div className="flex flex-col gap-14">
+      {/* <div className="flex flex-col gap-14">
         <div
           className="flex items-center justify-between relative px-4"
           id="sidebar-header"
@@ -152,7 +151,7 @@ export const Sidebar = () => {
         </div>
       </div>
       <div>
-        {/* <div className="flex flex-col items-start px-4">
+        <div className="flex flex-col items-start px-4">
           {menuItems1.map(({ icon: Icon, ...menu }) => {
             return (
               <div key={menu.id} className={getNavItemClasses(menu)}>
@@ -195,7 +194,7 @@ export const Sidebar = () => {
               </div>
             );
           })}
-        </div> */}
+        </div>
         <div
           onClick={() => router.push("/profile")}
           className="flex items-center mt-3 rounded gap-3 bg-white hover:bg-white hover:bg-opacity-10 px-4 h-20 cursor-pointer w-full transition-all duration-300 rounded-br-3xl"
@@ -218,6 +217,50 @@ export const Sidebar = () => {
             </div>
           )}
         </div>
+      </div> */}
+      <div className="w-full h-full flex flex-col items-center justify-between">
+        <div className="flex items-center pl-1 gap-54 rounded-md py-2 pr-1">
+          <img
+            src="/assets/images/konnektr_logo_white.png"
+            alt="konnektr_logo"
+            className={`w-7 relative right-0.5`}
+          />
+          <h1
+            className={classNames(
+              "mt-2 ml-2 text-3xl font-semibold text-sideBarLink pr-3 relative bottom-1 font_exo2",
+              {
+                "opacity-0": sidebarToggleCollapse,
+                hidden: sidebarToggleCollapse,
+              }
+            )}
+          >
+            Konnektr
+          </h1>
+        </div>
+        <div className="flex flex-col items-center justify-start w-full h-[50%]">
+          {sideBarLinks.map((item, i) => (
+            <div
+              onClick={() => router.push(item.link)}
+              className="flex items-center justify-start w-full h-[50px] my-1 bg-white pl-[20%] cursor-pointer"
+            >
+              <img
+                src={item.link == router.pathname ? item.active : item.image}
+                alt=""
+                className="w-[20px] h-[20px] mr-5"
+              />
+              <h1
+                className={`${
+                  item.link == router.pathname
+                    ? "text-transparent  bg-clip-text bg-gradient-to-tr from-text_gradient1 to-text_gradient2"
+                    : "bg-white text-sideBarLink"
+                } font-extrabold  text-[20px]`}
+              >
+                {item.label}
+              </h1>
+            </div>
+          ))}
+        </div>
+        <div className="w-full h-[30%] flex items-center justify-start "></div>
       </div>
     </div>
   );

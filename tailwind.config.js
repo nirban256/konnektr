@@ -97,6 +97,8 @@ module.exports = {
         messageBg2: "#eaeef1",
         messageBox: "#eef7fd",
         activeDot: "#20D902",
+        text_gradient1: "#FE66F8",
+        text_gradient2: "#9C67FF",
       }),
       spacing: {
         "75%": "75%",

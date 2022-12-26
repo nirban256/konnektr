@@ -57,4 +57,42 @@ export const menuItems1 = [
   },
 ];
 
-module.exports = { menuItems, menuItems1 };
+export const sideBarLinks: any[] = [
+  {
+    id: 1,
+    label: "Home",
+    active: "/assets/svg/ActiveHome.svg",
+    image: "/assets/svg/Home.svg",
+    link: "/",
+  },
+  {
+    id: 2,
+    label: "Konnektions",
+    active: "/assets/svg/ActiveKonnektions.svg",
+    image: "/assets/svg/konnektions.svg",
+    link: "/konnektions",
+  },
+  {
+    id: 3,
+    label: "Communities",
+    active: "/assets/svg/ActiveQuest.svg",
+    image: "/assets/svg/quest.svg",
+    link: "/communities",
+  },
+  {
+    id: 4,
+    label: "Quests",
+    active: "/assets/svg/ActiveSave.svg",
+    image: "/assets/svg/save.svg",
+    link: "/quests",
+  },
+  {
+    id: 5,
+    label: "Store",
+    active: "/assets/svg/ActiveStore.svg",
+    image: "/assets/svg/store.svg",
+    link: "/store",
+  },
+];
+
+module.exports = { menuItems, menuItems1, sideBarLinks };

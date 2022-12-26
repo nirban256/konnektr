@@ -219,7 +219,7 @@ export const Sidebar = () => {
         </div>
       </div> */}
       <div className="w-full h-full flex flex-col items-center justify-between">
-        <div className="flex items-center pl-1 gap-54 rounded-md py-2 pr-1">
+        <div className="flex items-center justify-start w-full pl-1 gap-54 rounded-md py-2 pr-1">
           <img
             src="/assets/images/konnektr_logo_white.png"
             alt="konnektr_logo"
@@ -242,7 +242,7 @@ export const Sidebar = () => {
             <div
               key={item.id}
               onClick={() => router.push(item.link)}
-              className="flex items-center justify-start w-full h-[50px] my-1 bg-white pl-[20%] cursor-pointer"
+              className="flex items-center justify-start w-full h-[50px] my-1 bg-white pl-[10%] cursor-pointer"
             >
               <img
                 src={item.link == router.pathname ? item.active : item.image}

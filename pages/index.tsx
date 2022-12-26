@@ -17,12 +17,6 @@ const Home: NextPage = () => {
   } = useAppStateContext();
   const router = useRouter();
 
-  useEffect(() => {
-    if (window !== undefined) {
-      console.log(window.innerWidth);
-    }
-  }, []);
-
   return (
     <DashboardLayout>
       <div className="w-[100%] h-[100vh] flex flex-col sm:flex-row items-start justify-between bg-white pb-16  sm:pb-0 box-border overflow-hidden">

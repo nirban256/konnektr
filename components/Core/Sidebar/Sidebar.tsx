@@ -18,9 +18,9 @@ export const Sidebar = () => {
   // );
 
   const wrapperClasses = classNames(
-    "h-screen pt-1 bg-white hidden lg:flex justify-between flex-col transition-all duration-500 bg-white rounded-tr-3xl rounded-br-3xl duration-500 overflow-hidden",
+    "h-screen pt-1 bg-white hidden lg:flex justify-between flex-col transition-all duration-500 bg-white rounded-tr-3xl rounded-br-3xl duration-500 overflow-hidden lg1100:ml-[2%] lg1200:ml-[3%] lg1300:ml-[7%] xl1400:ml-[10%] xl1500:ml-[12%]",
     {
-      ["w-80 max-w-[250px]"]: !sidebarToggleCollapse,
+      ["w-80 "]: !sidebarToggleCollapse,
       ["w-20"]: sidebarToggleCollapse,
       absolute: false,
     }
@@ -242,7 +242,7 @@ export const Sidebar = () => {
             <div
               key={item.id}
               onClick={() => router.push(item.link)}
-              className="flex items-center justify-start w-full h-[50px] my-1 bg-white pl-[10%] cursor-pointer"
+              className="flex items-center justify-start w-full h-[50px] my-1 bg-white pl-[5%] cursor-pointer"
             >
               <img
                 src={item.link == router.pathname ? item.active : item.image}

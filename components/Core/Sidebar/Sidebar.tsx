@@ -21,7 +21,7 @@ export const Sidebar = () => {
   const wrapperClasses = classNames(
     "h-screen pt-1 bg-white hidden lg:flex justify-between flex-col transition-all duration-500 bg-white rounded-tr-3xl rounded-br-3xl duration-500 overflow-hidden",
     {
-      ["w-80"]: !sidebarToggleCollapse,
+      ["w-80 max-w-[250px]"]: !sidebarToggleCollapse,
       ["w-20"]: sidebarToggleCollapse,
       absolute: false,
     }
@@ -33,9 +33,9 @@ export const Sidebar = () => {
     link: string;
   }) => {
     return classNames(
-      "flex items-center cursor-pointer hover:bg-bgDropDown overflow-hidden whitespace-nowrap transition-all duration-500 rounded my-0.5",
+      "flex w-full items-center cursor-pointer hover:bg-bgDropDown overflow-hidden whitespace-nowrap transition-all duration-500 rounded my-0.5",
       {
-        ["bg-pink-200  bg-opacity-15"]: activeMenu?.id === menu.id,
+        ["bg-gray-200  bg-opacity-15"]: activeMenu?.id === menu.id,
       }
     );
   };
@@ -65,12 +65,12 @@ export const Sidebar = () => {
     <div
       className={wrapperClasses}
       id="sidebar"
-      onMouseEnter={() => {
-        setSidebarToggleCollapse(false);
-      }}
-      onMouseLeave={() => {
-        setSidebarToggleCollapse(true);
-      }}
+      // onMouseEnter={() => {
+      //   setSidebarToggleCollapse(false);
+      // }}
+      // onMouseLeave={() => {
+      //   setSidebarToggleCollapse(true);
+      // }}
     >
       <div className="flex flex-col gap-14">
         <div

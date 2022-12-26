@@ -19,9 +19,9 @@ const Home: NextPage = () => {
   return (
     <DashboardLayout>
       <div className="w-[100%] h-[100vh] flex flex-col sm:flex-row items-start justify-between bg-white pb-16  sm:pb-0 box-border overflow-hidden">
-        <Header logoShown />
-        <div className="h-full w-full sm:w-[68%] flex flex-col items-center justify-start overflow-y-scroll scrollbar-hide pr-0 sm:pr-1 box-border">
-          <div className="w-[99%] h-auto sm:min-h-[20vh] rounded-[25px] bg-bgCover flex flex-col items-center justify-evenly sm:justify-between py-2 sm:py-0 box-border">
+        <div className="h-full w-full md:w-full  lg:w-[90%] lg1250:w-[80%] flex flex-col items-center justify-start overflow-y-scroll scrollbar-hide pr-0 sm:pr-1 box-border">
+          <Header logoShown />
+          <div className="w-[99%] sticky h-auto sm:min-h-[120px] max-h-[128px] rounded-[25px] bg-bgCover flex flex-col items-center justify-evenly sm:justify-between py-2 sm:py-0 box-border ">
             <div className="w-[95%] sm:w-full h-[40px] sm:h-[50px] rounded-[30px] bg-bgCoverDark flex items-center justify-start">
               <FaSearch className="text-sideBarLink ml-4" size={20} />
               <input
@@ -62,20 +62,20 @@ const Home: NextPage = () => {
             />
           </div>
         </div>
-        <section className=" hidden h-full w-[30%] sm:flex flex-col items-center justify-start">
+        <section className=" hidden h-full w-[35%] min-w-[350px] lg:flex flex-col items-center justify-start">
           <div className="w-full h-[10%] flex items-center justify-between">
-            <TextInput
-              sx={{ color: "white" }}
-              variant="unstyled"
-              className="rounded-lg"
-              placeholder="Search"
-              icon={<FaSearch className="text-sideBarLink ml-4" size={22} />}
-              classNames={{
-                input: `w-[70%] ${
-                  sidebarToggleCollapse ? "min-w-[210px]" : "min-w-[180px]"
-                } h-[50px] rounded-[30px] bg-bgDropDown text-black pl-5 placeholder:text-sideBarLink placeholder:font-bold  pl-[4vw] duration-500`,
-              }}
-            />
+            <div
+              className={`w-[70%] ${
+                sidebarToggleCollapse ? "min-w-[200px]" : "min-w-[180px]"
+              } h-[50px] rounded-[30px] flex items-center justify-start bg-bgDropDown text-black pl-3 box-border   oveflow-hidden  duration-500`}
+            >
+              <FaSearch />
+              <input
+                type="text"
+                placeholder="Search"
+                className="w-[85%] h-full text-black pl-3 bg-transparent placeholder:text-sideBarLink placeholder:font-bold focus:outline-none"
+              />
+            </div>
             <button
               onClick={() => router.push("/messages")}
               className="w-[20%] min-w-[90px] h-[50px] rounded-[30px] flex items-center justify-center bg-bgDropDown"

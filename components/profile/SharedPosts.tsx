@@ -11,9 +11,9 @@ type Post = {
   image?: any;
 };
 
-function SharedPosts({ name, username, content, image }: Post) {
+const SharedPosts = ({ name, username, content, image }: Post) => {
   return (
-    <div className="self-start w-[99%] min-h-[185px] rounded-[30px] bg-bgCard flex flex-col items-center justify-start overflow-hidden my-2">
+    <div className="self-start w-[99%] min-h-[185px] rounded-[30px] bg-bgCard flex flex-col items-center justify-between overflow-hidden my-2">
       <div className="w-full h-[10%] min-h-[50px] sm:min-h-[55px] flex items-end justify-between px-[5%] box-border">
         <div className="w-[40%] h-full flex items-end justify-start">
           <img
@@ -30,19 +30,21 @@ function SharedPosts({ name, username, content, image }: Post) {
         </div>
         <BsThreeDots className="text-sideBarLink" size={26} />
       </div>
-      {content && (
-        <p className="text-[0.8rem] font-normal text-sideBarLink max-w-[80%] text-justify mt-2">
-          {content}
-        </p>
-      )}
-      {image && (
-        <img
-          src={image}
-          alt=""
-          className="w-[80%] h-[30vh] sm:h-[60vh] object-fill rounded-[10px] my-2"
-        />
-      )}
-      <div className="w-[80%] h-[10vh] flex items-center justify-between mt-2">
+      <div className="w-full flex flex-col items-center justify-start px-[60px] box-border">
+        {content && (
+          <p className=" text-[0.8rem] font-normal text-sideBarLink max-w-[80%] text-justify mt-5">
+            {content}
+          </p>
+        )}
+        {image && (
+          <img
+            src={image}
+            alt=""
+            className=" w-[80%] h-[30vh] sm:h-[60vh] object-fill rounded-[10px] my-2 max-h-[270px] lg:max-w-[90%] max-w-[500px]"
+          />
+        )}
+      </div>
+      <div className="w-[80%] h-[10vh] flex items-center justify-between mt-2 max-h-[70px]">
         <AiOutlineMessage className="text-sideBarLink" size={22} />
         <BsArrowDownUp className="text-arrow" size={22} />
         <FaRegHeart className="text-like" size={22} />
@@ -50,6 +52,6 @@ function SharedPosts({ name, username, content, image }: Post) {
       </div>
     </div>
   );
-}
+};
 
 export default SharedPosts;

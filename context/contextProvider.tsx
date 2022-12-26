@@ -13,7 +13,7 @@ export interface AppContextInterface {
 export const AppStateContext = createContext<AppContextInterface | null>(null);
 
 export const AppContextProvider = ({ children }: { children: ReactNode }) => {
-  const [sidebarToggleCollapse, setSidebarToggleCollapse] = useState(true);
+  const [sidebarToggleCollapse, setSidebarToggleCollapse] = useState(false);
   const [searchBy, setSearchBy] = useState("Name");
   const [work, setWork] = useState("");
   const [experience, setExperience] = useState("");

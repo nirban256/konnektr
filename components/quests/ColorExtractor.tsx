@@ -13,7 +13,7 @@ type RGB = {
   b: number;
 };
 
-function ColorExtractor({ image, children, getColor, className }: item) {
+const ColorExtractor = ({ image, children, getColor, className }: item) => {
   const canvasRef = useRef<any>();
   const colors: string[] = [];
 
@@ -58,6 +58,6 @@ function ColorExtractor({ image, children, getColor, className }: item) {
       {children}
     </canvas>
   );
-}
+};
 
 export default ColorExtractor;

@@ -3,14 +3,14 @@ import { FaCheckCircle, FaChevronDown, FaChevronUp } from "react-icons/fa";
 import { useAppStateContext } from "../../context/contextProvider";
 import styles from "./DropDown.module.css";
 
-type Data = {
+type data = {
   value: String;
   label: String;
 };
 
 type props = {
   placeholder: String;
-  data: Data[];
+  data: data[];
   onChangeFirst: (data: String) => void;
   onChangeSecond: any | ((data: String) => void);
   onChangeThird: any | ((data: String) => void);
@@ -21,8 +21,8 @@ type props = {
   firstSectionTitle?: String;
   secondSectionTitle?: String;
   thirdSectionTitle?: String;
-  dataSecondSection?: Data[];
-  dataThirdSection?: Data[];
+  dataSecondSection?: data[];
+  dataThirdSection?: data[];
   mobile?: boolean;
 };
 

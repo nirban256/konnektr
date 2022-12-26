@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import React from "react";
 import Header from "../../components/profile/Header";
 import Quest from "../../components/quests/Quest";
@@ -5,6 +6,7 @@ import QuestType from "../../components/quests/QuestType";
 import DashboardLayout from "../../layout/dashboard";
 
 function Quests() {
+  const router = useRouter();
   return (
     <DashboardLayout>
       <div className="w-full h-[100vh] flex flex-col items-center justify-start bg-white overflow-y-scroll pb-16 sm:pb-0 box-border">
@@ -17,36 +19,42 @@ function Quests() {
         </div>
         <div className="w-[80%] h-[100%] grid grid-cols-1 sm:grid-cols-3 place-content-start place-items-center gap-y-[25px] overflow-y-scroll scrollbar-hide ">
           <Quest
+            onClick={() => router.push("/quests/1")}
             image={"/assets/images/questbg.jpg"}
             points={"5k"}
             status={"Ended"}
             title="Signup Quest"
           />
           <Quest
+            onClick={() => router.push("/quests/1")}
             image={"/assets/images/questbg.jpg"}
             points={"3k"}
             status={"Ended"}
             title="Signup Quest"
           />
           <Quest
+            onClick={() => router.push("/quests/1")}
             image={"/assets/images/questbg.jpg"}
             points={"5k"}
             status={"open"}
             title="Signup Quest"
           />
           <Quest
+            onClick={() => router.push("/quests/1")}
             image={"/assets/images/questbg.jpg"}
             points={"6k"}
             status={"pending"}
             title="Signup Quest"
           />
           <Quest
+            onClick={() => router.push("/quests/1")}
             image={"/assets/images/questbg.jpg"}
             points={"7k"}
             status={"locked"}
             title="Signup Quest"
           />
           <Quest
+            onClick={() => router.push("/quests/1")}
             image={"/assets/images/questbg.jpg"}
             points={"3k"}
             status={"locked"}

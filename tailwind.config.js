@@ -95,6 +95,8 @@ module.exports = {
         questBlurbg: "rgba(126, 195, 244, 0.5)",
         messageBg1: "#afdcff",
         messageBg2: "#eaeef1",
+        messageBox: "#eef7fd",
+        activeDot: "#20D902",
       }),
       spacing: {
         "75%": "75%",

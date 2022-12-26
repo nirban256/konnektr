@@ -9,9 +9,10 @@ type Quest = {
   title: string;
   status: "locked" | "pending" | "Ended" | "open";
   points: number | string;
+  onClick: () => void;
 };
 
-function Quest({ image, points, status, title }: Quest) {
+const Quest = ({ image, points, status, title, onClick }: Quest) => {
   const [colors, setColors] = useState<any[]>([]);
 
   const getStatus = (status: "locked" | "pending" | "Ended" | "open") => {
@@ -29,6 +30,7 @@ function Quest({ image, points, status, title }: Quest) {
 
   return (
     <div
+      onClick={onClick}
       style={{
         background:
           colors.length !== 0
@@ -61,6 +63,6 @@ function Quest({ image, points, status, title }: Quest) {
       />
     </div>
   );
-}
+};
 
 export default Quest;

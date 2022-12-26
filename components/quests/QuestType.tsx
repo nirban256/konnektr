@@ -6,7 +6,7 @@ type QuestType = {
   onClick?: () => void;
 };
 
-function QuestType({ title, isActive, onClick }: QuestType) {
+const QuestType = ({ title, isActive, onClick }: QuestType) => {
   return (
     <div
       onClick={onClick}
@@ -17,6 +17,6 @@ function QuestType({ title, isActive, onClick }: QuestType) {
       <h1 className="text-sideBarLink font-medium text-[0.8rem]">{title}</h1>
     </div>
   );
-}
+};
 
 export default QuestType;

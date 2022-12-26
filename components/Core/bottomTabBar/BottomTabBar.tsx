@@ -44,7 +44,7 @@ const bottomMenuItems = [
 
 type tab = "home" | "konnektions" | "quests" | "store" | "profile";
 
-function BottomTabBar() {
+const BottomTabBar = () => {
   const [active, setActive] = useState<tab>("home");
   const router = useRouter();
 
@@ -57,7 +57,7 @@ function BottomTabBar() {
   }, [router.pathname]);
 
   return (
-    <div className="fixed z-[100] sm:hidden bottom-0 w-full h-[10vh] max-h-[70px] flex items-center justify-between rounded-t-[15px] bg-white">
+    <div className="fixed z-[100] left-0 right-0 m-auto lg:hidden bottom-0 sm:w-full md:w-[75%] h-[10vh] max-h-[70px] flex items-center justify-between sm:rounded-t-[15px] md:rounded-[15px] bg-white">
       {bottomMenuItems.map((item, index) => (
         <Link
           key={index}
@@ -81,6 +81,6 @@ function BottomTabBar() {
       ))}
     </div>
   );
-}
+};
 
 export default BottomTabBar;

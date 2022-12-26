@@ -178,20 +178,20 @@ const Profile: NextPage = () => {
             />
           </div>
         </div>
-        <section className=" hidden h-full w-[30%] sm:flex flex-col items-center justify-start">
+        <section className=" hidden h-full w-[30%] min-w-[320px] sm:flex flex-col items-center justify-start">
           <div className="w-full h-[10%] flex items-center justify-between">
-            <TextInput
-              sx={{ color: "white" }}
-              variant="unstyled"
-              className="rounded-lg"
-              placeholder="Search"
-              icon={<FaSearch className="text-sideBarLink ml-4" size={22} />}
-              classNames={{
-                input: `w-[70%] ${
-                  sidebarToggleCollapse ? "min-w-[210px]" : "min-w-[180px]"
-                } h-[50px] rounded-[30px] bg-bgDropDown text-black pl-5 placeholder:text-sideBarLink placeholder:font-bold  pl-[4vw] duration-500`,
-              }}
-            />
+            <div
+              className={`w-[70%] ${
+                sidebarToggleCollapse ? "min-w-[200px]" : "min-w-[180px]"
+              } h-[50px] rounded-[30px] flex items-center justify-start bg-bgDropDown text-black pl-3 box-border   oveflow-hidden  duration-500`}
+            >
+              <FaSearch />
+              <input
+                type="text"
+                placeholder="Search"
+                className="w-[85%] h-full text-black pl-3 bg-transparent placeholder:text-sideBarLink placeholder:font-bold focus:outline-none"
+              />
+            </div>
             <button
               onClick={() => router.push("/messages")}
               className="w-[20%] min-w-[90px] h-[50px] rounded-[30px] flex items-center justify-center bg-bgDropDown"

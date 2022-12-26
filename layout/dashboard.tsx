@@ -3,12 +3,10 @@ import { Sidebar } from "../components/Core/Sidebar/Sidebar";
 
 function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="h-screen flex flex-row justify-start bg-white box-border">
+    <div className="h-screen  flex flex-row justify-start px-0 lg:w-px-0 lg1300:px-[12%] bg-white box-border">
       {true && <Sidebar />}
       <BottomTabBar />
-      <div className="w-full  overflow-y-scroll">
-        <div className="p-4">{children}</div>
-      </div>
+      {children}
     </div>
   );
 }

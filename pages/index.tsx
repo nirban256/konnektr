@@ -1,5 +1,6 @@
 import { NextPage } from "next";
 import { useRouter } from "next/router";
+import { useEffect } from "react";
 import { FaSearch } from "react-icons/fa";
 import SearchItem from "../components/home/SearchItem";
 import TrendingQuestItem from "../components/home/TrendingQuestItem";
@@ -15,10 +16,16 @@ const Home: NextPage = () => {
   } = useAppStateContext();
   const router = useRouter();
 
+  // useEffect(() => {
+  //   if (window) {
+  //     alert(window.innerWidth);
+  //   }
+  // }, []);
+
   return (
     <DashboardLayout>
       <div className="w-[100%] lg1300:w-[80%]  h-[100vh] flex flex-col sm:flex-row items-start justify-between bg-white pb-16  sm:pb-0 box-border overflow-hidden">
-        <div className="h-full w-full md:w-full  lg:w-[90%] lg1250:w-[80%] flex flex-col items-center justify-start overflow-y-scroll scrollbar-hide pr-0 sm:pr-1 box-border">
+        <div className="h-full w-full flex flex-col items-center justify-start overflow-y-scroll scrollbar-hide pr-0 sm:pr-1 box-border">
           <Header logoShown />
           <div className="w-[99%] sticky h-auto sm:min-h-[120px] max-h-[128px] rounded-[25px] bg-bgCover flex flex-col items-center justify-evenly sm:justify-between py-2 sm:py-0 box-border mt-2">
             <div className="w-[95%] sm:w-full h-[40px] sm:h-[50px] rounded-[30px] bg-bgCoverDark flex items-center justify-start">

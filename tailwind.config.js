@@ -99,6 +99,8 @@ module.exports = {
         activeDot: "#20D902",
         text_gradient1: "#FE66F8",
         text_gradient2: "#9C67FF",
+        line: "rgba(67, 100, 117, 0.3)",
+        borderModal: "rgba(42, 163, 239, 0.1)",
       }),
       spacing: {
         "75%": "75%",

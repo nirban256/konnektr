@@ -13,7 +13,7 @@ type Post = {
 
 const SharedPosts = ({ name, username, content, image }: Post) => {
   return (
-    <div className="self-start w-[99%] min-h-[185px] rounded-[30px] bg-bgCard flex flex-col items-center justify-between overflow-hidden my-2">
+    <div className="self-start w-[99%] min-h-[185px] rounded-[30px] bg-bgCard flex flex-col items-center justify-between overflow-hidden mb-3">
       <div className="w-full h-[10%] min-h-[50px] sm:min-h-[55px] flex items-end justify-between px-[5%] box-border">
         <div className="w-[40%] h-full flex items-end justify-start">
           <img
@@ -28,11 +28,11 @@ const SharedPosts = ({ name, username, content, image }: Post) => {
             @{username}
           </h1>
         </div>
-        <BsThreeDots className="text-sideBarLink" size={26} />
+        <BsThreeDots className="text-sideBarLink mr-7" size={26} />
       </div>
-      <div className="w-full flex flex-col items-center justify-start px-[60px] box-border">
+      <div className="w-full flex flex-col items-start justify-start  box-border px-[10%]">
         {content && (
-          <p className=" text-[0.8rem] font-normal text-sideBarLink max-w-[80%] text-justify mt-5">
+          <p className=" text-[0.8rem] font-normal text-sideBarLink  text-justify mt-5">
             {content}
           </p>
         )}
@@ -40,7 +40,7 @@ const SharedPosts = ({ name, username, content, image }: Post) => {
           <img
             src={image}
             alt=""
-            className=" w-[80%] h-[30vh] sm:h-[60vh] object-fill rounded-[10px] my-2 max-h-[270px] lg:max-w-[90%] max-w-[500px]"
+            className=" w-full h-[30vh] sm:h-[60vh] object-fill rounded-[10px] my-2 max-h-[270px]"
           />
         )}
       </div>

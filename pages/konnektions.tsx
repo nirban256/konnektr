@@ -250,7 +250,7 @@ const konnektions = () => {
             sidebarToggleCollapse
               ? "lg1100:grid-cols-4 lg1200:grid-cols-5 lg1350:grid-cols-5"
               : "lg1100:grid-cols-3 lg1200:grid-cols-4 lg1350:grid-cols-4"
-          } gap-y-5 lg:gap-y-10 scrollbar-hide box-border place-items-center lg:place-items-center mt-4 sm:mt-2`}
+          } gap-y-5 lg:gap-y-10 overflow-y-scroll scrollbar-hide box-border place-items-center lg:place-items-center mt-4 sm:mt-[40px]`}
         >
           {Array(15)
             .fill(null)

@@ -240,6 +240,7 @@ export const Sidebar = () => {
         <div className="flex flex-col items-center justify-start w-full h-[50%]">
           {sideBarLinks.map((item, i) => (
             <div
+              key={item.id}
               onClick={() => router.push(item.link)}
               className="flex items-center justify-start w-full h-[50px] my-1 bg-white pl-[20%] cursor-pointer"
             >

@@ -1,6 +1,7 @@
 import { TextInput } from "@mantine/core";
 import { NextPage } from "next";
 import { useRouter } from "next/router";
+import { useEffect } from "react";
 import { FaSearch } from "react-icons/fa";
 import SearchItem from "../components/home/SearchItem";
 import TrendingQuestItem from "../components/home/TrendingQuestItem";
@@ -15,6 +16,12 @@ const Home: NextPage = () => {
     sidebarToggleCollapse,
   } = useAppStateContext();
   const router = useRouter();
+
+  useEffect(() => {
+    if (window !== undefined) {
+      console.log(window.innerWidth);
+    }
+  }, []);
 
   return (
     <DashboardLayout>

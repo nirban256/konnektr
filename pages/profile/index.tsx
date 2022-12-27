@@ -50,7 +50,7 @@ const Profile: NextPage = () => {
               } h-[6vh] sm:h-[12vh] bg-transparent flex items-center justify-between duration-500`}
             >
               <div className="w-[30%] h-full flex flex-col items-start justify-evenly pl-1 box-border">
-                <h1 className="text-sideBarLink text-[0.9rem] sm:text-[1.5rem] font-bold">
+                <h1 className="text-sideBarLink text-[0.9rem] sm:text-[1.5rem] font-bold ml-3 lg:ml-0">
                   Shivrajjj
                 </h1>
                 <h1 className="text-sideBarLink text-[0.75rem] font-light">

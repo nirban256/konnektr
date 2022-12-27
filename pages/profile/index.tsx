@@ -77,7 +77,7 @@ const Profile: NextPage = () => {
               className={`self-start ${
                 sidebarToggleCollapse
                   ? "max-w-[90%] sm:max-w-[50%]"
-                  : "max-w-[60%]"
+                  : "max-w-[90%]"
               } mt-3 mb-0 sm:mb-2 font-light text-[0.85rem] sm:text-[0.97rem] text-profileDesc duration-500`}
             >
               Blockchain | LearnWeb3dao | Intern @Buildspace | Code is law ✌ |

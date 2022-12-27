@@ -86,7 +86,7 @@ const Profile: NextPage = () => {
             <div className="w-full h-[12vh] flex items-center justify-between my-1">
               <div
                 className={`${
-                  sidebarToggleCollapse ? "w-[65%] sm:w-[40%]" : "w-[50%]"
+                  sidebarToggleCollapse ? "w-[65%] sm:w-[40%]" : "w-[60%]"
                 } h-full flex items-center sm:items-start justify-between duration-500`}
               >
                 <FollowerSectionItem title="Followers" value={100} />

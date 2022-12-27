@@ -18,7 +18,7 @@ export const Sidebar = () => {
   // );
 
   const wrapperClasses = classNames(
-    "h-screen pt-1 bg-white hidden lg:flex justify-between flex-col transition-all duration-500 bg-white rounded-tr-3xl rounded-br-3xl duration-500 overflow-hidden lg1100:ml-[1%] lg1200:ml-[1%] lg1300:ml-[3%] xl1400:ml-[10%] xl1500:ml-[16%]",
+    "h-screen pt-1 bg-white hidden lg:flex justify-between flex-col transition-all duration-500 bg-white rounded-tr-3xl rounded-br-3xl duration-500 overflow-hidden lg1100:ml-[1%] lg1200:ml-[1%] lg1300:ml-[3%] xl1400:ml-[8%] xl1500:ml-[12%]",
     {
       ["w-80 "]: !sidebarToggleCollapse,
       ["w-20"]: sidebarToggleCollapse,

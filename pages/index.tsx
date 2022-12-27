@@ -27,9 +27,9 @@ const Home: NextPage = () => {
   return (
     <DashboardLayout>
       <div className="w-[100%] lg1300:w-[80%]  h-[100vh] flex flex-col sm:flex-row items-start justify-between bg-white pb-16  sm:pb-0 box-border overflow-hidden">
-        <div className="h-full w-full flex flex-col items-center justify-start overflow-y-scroll scrollbar-hide pr-0 sm:pr-1 box-border">
+        <div className="h-full w-full flex flex-col items-center justify-start overflow-y-scroll scrollbar-hide px-2 lg:px-0 box-border">
           <Header logoShown />
-          <div className="w-full min-h-[75px] flex flex-col items-center justify-center border-[1px] border-goldBorder bg-goldBg rounded-[20px] mt-2 mb-3 px-[8%]  box-border">
+          <div className="w-[97%] lg:w-full min-h-[85px] lg:min-h-[75px] flex flex-col items-center justify-center border-[1px] border-goldBorder bg-goldBg rounded-[20px] mt-2 mb-3 px-[8%]  box-border">
             <h1 className="self-start text-goldText font-extrabold text-[0.8rem] ">
               Beta warning!
             </h1>

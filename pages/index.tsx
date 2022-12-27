@@ -92,7 +92,7 @@ const Home: NextPage = () => {
             />
           </div>
         </div>
-        <section className=" hidden h-full w-[35%] min-w-[350px] lg:flex flex-col items-center justify-between ml-2 py-2 lg1100:mr-[1%] lg1200:mr-[2%] lg1300:mr-[6%] xl1400:mr-[12%] xl1500:mr-[18%] ">
+        <section className=" hidden h-full w-[35%] min-w-[350px] lg:flex flex-col items-center justify-between ml-2 py-2 lg1100:mr-[1%] lg1200:mr-[1%] lg1300:mr-[2%] xl1400:mr-[10%] xl1500:mr-[16%] ">
           <div className="w-full h-[10%] flex items-center justify-between">
             <div
               className={`w-[70%] ${

@@ -18,7 +18,7 @@ export const Sidebar = () => {
   // );
 
   const wrapperClasses = classNames(
-    "h-screen pt-1 bg-white hidden lg:flex justify-between flex-col transition-all duration-500 bg-white rounded-tr-3xl rounded-br-3xl duration-500 overflow-hidden lg1100:ml-[1%] lg1200:ml-[2%] lg1300:ml-[7%] xl1400:ml-[10%] xl1500:ml-[12%]",
+    "h-screen pt-1 bg-white hidden lg:flex justify-between flex-col transition-all duration-500 bg-white rounded-tr-3xl rounded-br-3xl duration-500 overflow-hidden lg1100:ml-[1%] lg1200:ml-[1%] lg1300:ml-[3%] xl1400:ml-[10%] xl1500:ml-[16%]",
     {
       ["w-80 "]: !sidebarToggleCollapse,
       ["w-20"]: sidebarToggleCollapse,
@@ -261,7 +261,10 @@ export const Sidebar = () => {
             </div>
           ))}
         </div>
-        <div className="w-full h-[10%] flex items-center justify-between px-4 box-border mb-5">
+        <div
+          onClick={() => router.push("/profile")}
+          className="w-full h-[10%] flex items-center justify-between px-4 box-border mb-5 cursor-pointer"
+        >
           <div className="flex items-center justify-start w-[55%] h-full ">
             <img
               src="/assets/images/image.png"

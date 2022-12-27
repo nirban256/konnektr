@@ -27,9 +27,9 @@ const Profile: NextPage = () => {
     <DashboardLayout>
       <div className="w-[100%] h-[100vh] flex flex-col sm:flex-row items-start justify-between bg-bgGrey1 pb-16 sm:pb-0 box-border overflow-hidden">
         <Header />
-        <div className="h-full w-full sm:w-[68%] flex flex-col items-center justify-start overflow-y-scroll scrollbar-hide pr-0 sm:pr-1 box-border">
+        <div className="h-full w-full sm:w-[68%] flex flex-col items-center justify-start overflow-y-scroll scrollbar-hide px-2 lg:px-0 box-border">
           <div className="w-full h-[70vh] flex flex-col items-center justify-start">
-            <div className="relative w-[100%] h-[30vh] max-h-[110px] sm:max-h-[160px] bg-bgCover  bg-no-repeat bg-center bg-cover rounded-t-[30px]">
+            <div className="relative w-[100%] h-[30vh] max-h-[110px] sm:max-h-[160px] bg-bgCover  bg-no-repeat bg-center bg-cover rounded-t-[30px] mt-0 lg:mt-2">
               <img
                 src="/assets/images/image.png"
                 alt="profilepic"
@@ -167,7 +167,7 @@ const Profile: NextPage = () => {
             />
           </div>
         </div>
-        <section className=" hidden h-full w-[30%] min-w-[320px] sm:flex flex-col items-center justify-start">
+        <section className=" hidden h-full w-[30%] min-w-[320px] sm:flex flex-col items-center justify-start lg1100:mr-[1%] lg1200:mr-[1%] lg1300:mr-[2%] xl1400:mr-[10%] xl1500:mr-[16%] ml-0 lg:ml-3">
           <div className="w-full h-[10%] flex items-center justify-between">
             <div
               className={`w-[70%] ${

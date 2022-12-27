@@ -3,7 +3,7 @@ import Header from "../../components/profile/Header";
 
 const Quest = () => {
   return (
-    <div className="w-screen min-h-screen flex flex-col items-center justify-start bg-white">
+    <div className="w-screen min-h-screen flex flex-col items-center justify-start bg-white lg1100:mr-[1%] lg1200:mr-[1%] lg1300:mr-[2%] xl1400:mr-[10%] xl1500:mr-[16%]">
       <Header />
       <div className="w-[85%] h-screen bg-bgCover rounded-[30px] flex flex-col items-center justify-start p-5 box-border">
         <div className="flex items-center justify-between w-full h-auto ">

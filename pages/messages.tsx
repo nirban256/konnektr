@@ -36,7 +36,7 @@ const Messages = () => {
 
   return (
     <DashBoardLayout>
-      <div className="w-[100%] h-[100vh] flex flex-col sm:flex-row items-start justify-between bg-white pb-16 sm:pb-0 box-border overflow-hidden">
+      <div className="w-[100%] h-[100vh] flex flex-col sm:flex-row items-start justify-between bg-white pb-16 sm:pb-0 box-border overflow-hidden ">
         <Header />
         <div className="h-full w-full sm:w-[68%] flex flex-col items-center justify-start overflow-y-scroll scrollbar-hide pr-0 sm:pr-1 box-border">
           <div className="relative w-full h-[99vh] flex flex-col items-center justify-start bg-bgCover rounded-[25px] py-2 box-border">
@@ -108,7 +108,7 @@ const Messages = () => {
             </form>
           </div>
         </div>
-        <section className=" hidden h-full w-[30%] min-w-[320px] sm:flex flex-col items-center justify-start">
+        <section className=" hidden h-full w-[30%] min-w-[320px] sm:flex flex-col items-center justify-start lg1100:mr-[1%] lg1200:mr-[1%] lg1300:mr-[2%] xl1400:mr-[10%] xl1500:mr-[16%]">
           <div className="w-full h-[10%] flex items-center justify-between">
             <div
               className={`w-[70%] ${

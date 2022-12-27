@@ -48,14 +48,6 @@ const BottomTabBar = () => {
   const [active, setActive] = useState<tab>("home");
   const router = useRouter();
 
-  useEffect(() => {
-    if (router.pathname.toString() === "/") {
-      setActive("home");
-    } else {
-      setActive(router.pathname.toString().slice(1, 20) as tab);
-    }
-  }, [router.pathname]);
-
   return (
     <div className="fixed z-[100] left-0 right-0 m-auto lg:hidden bottom-0 sm:w-full md:w-[75%] h-[10vh] max-h-[70px] flex items-center justify-between sm:rounded-t-[15px] md:rounded-[15px] bg-white">
       {bottomMenuItems.map((item, index) => (
@@ -65,14 +57,9 @@ const BottomTabBar = () => {
           className="w-full h-full flex flex-col items-center justify-center"
           href={item.link}
         >
-          <div
-            onClick={() => setActive(item.label.toLowerCase() as tab)}
-            className="w-full h-full flex flex-col items-center justify-center"
-          >
+          <div className="w-full h-full flex flex-col items-center justify-center">
             <img
-              src={
-                active == item.label.toLowerCase() ? item.iconActive : item.icon
-              }
+              src={item.link == router.pathname ? item.iconActive : item.icon}
               alt=""
               className="h-[22px] w-[22px]"
             />

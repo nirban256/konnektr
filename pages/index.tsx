@@ -33,11 +33,11 @@ const Home: NextPage = () => {
             <h1 className="self-start text-goldText font-extrabold text-[0.8rem] ">
               Beta warning!
             </h1>
-            <p className="self-start text-[0.7rem] text-lightGold font-light my-1">
+            <p className="self-start text-[0.7rem] text-lightGold font-light my-1 leading-[10px] lg:leading-3">
               Konnektr is still in the beta phase,things may break,please handle
               us with care.
             </p>
-            <p className="self-start text-[0.7rem] font-light text-profileDesc leading-3">
+            <p className="self-start text-[0.7rem] font-light text-profileDesc leading-[10px] lg:leading-3">
               © 2022 konnektr Privacy Discord Donate Status Vote Feedback hanks
               GitHub▲ Powered by Vercel
             </p>

@@ -30,7 +30,7 @@ const bottomMenuItems = [
     id: 4,
     label: "Store",
     icon: "/assets/svg/save.svg",
-    iconActive: "/assets/svg/ActiveStore.svg",
+    iconActive: "/assets/svg/ActiveSave.svg",
     link: "/store",
   },
   {

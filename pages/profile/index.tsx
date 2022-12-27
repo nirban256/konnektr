@@ -58,10 +58,10 @@ const Profile: NextPage = () => {
                 </h1>
               </div>
               <div className="flex items-center sm:items-start justify-evenly w-[60%] sm:w-[30%] h-full pt-[1%] box-border ">
-                <GradientButton classname="w-[20%] min-w-[80px] sm:w-[50%]  sm:min-w-[100px] sm:max-w-[150px] h-[60%] min-h-[25px] max-h-[30px]  sm:max-h-[30px] rounded-[20px] text-white text-[0.8rem] font-bold ">
+                <GradientButton classname="w-[60%] min-w-[80px] sm:w-[50%]  sm:min-w-[100px] sm:max-w-[150px] h-[60%] min-h-[25px] max-h-[30px]  sm:max-h-[30px] rounded-[20px] text-white text-[0.8rem] font-bold ">
                   Konnekt
                 </GradientButton>
-                <button className="min-w-[35px]  sm:min-w-[70px] sm:max-w-[130px] h-[60%] min-h-[30px] sm:min-h-[30px] max-h-[30px] sm:max-h-[32px] rounded-[20px] flex items-center justify-center bg-bgDropDown">
+                <button className="min-w-[45px]  sm:min-w-[70px] sm:max-w-[130px] h-[60%] min-h-[35px] sm:min-h-[30px] max-h-[30px] sm:max-h-[32px] rounded-[20px] flex items-center justify-center bg-bgDropDown">
                   <AiOutlineMessage
                     className="hidden sm:flex text-black"
                     size={20}

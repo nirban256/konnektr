@@ -184,8 +184,8 @@ const Home: NextPage = () => {
         </section>
       </div>
       {isModalVisible && (
-        <div className="fixed w-screen h-screen bg-profileDesc top-0 flex flex-col items-center justify-center">
-          <div className="relative w-[50%] h-[30%] min-h-[220px] max-h-[230px] max-w-[650px] bg-white rounded-[30px] flex flex-col items-center justify-start overflow-hidden border-[3px] border-borderModal ">
+        <div className="fixed z-[100] w-screen h-screen bg-profileDesc top-0 flex flex-col items-center justify-start lg:justify-center">
+          <div className="relative w-[95%]  lg:w-[50%] h-[90%] lg:h-[30%] lg:min-h-[220px]  lg:max-h-[230px] max-w-[650px] bg-bgCover lg:bg-white rounded-[30px] flex flex-col items-center justify-start overflow-hidden border-[3px] border-borderModal ">
             <div className="w-full h-[50px] border-b-[1px] border-b-line flex items-center justify-between px-5 box-border">
               <h1 className="text-[0.9rem] font-extrabold text-sideBarLink">
                 Create Post
@@ -197,16 +197,17 @@ const Home: NextPage = () => {
                 <FaPlus className="text-gray-600 rotate-45" size={14} />
               </div>
             </div>
-            <div className="w-full h-[130px] flex flex-col items-start justify-center">
+            <div className="w-full h-[90%] lg:h-[130px] flex flex-col items-start justify-center">
               <textarea
                 rows={5}
+                autoFocus={false}
                 style={{ resize: "none" }}
-                className="w-full h-full placeholder:text-gray-400 placeholder:font-light placeholder:text-[0.9rem]  overflow-auto scrollbar-hide focus:outline-none pl-4 box-border pt-[8%]"
+                className="w-full h-full border-2 text-black placeholder:text-gray-400 placeholder:font-light placeholder:text-[0.9rem] bg-transparent  overflow-auto scrollbar-hide focus:outline-none pl-4 box-border pt-[8%]"
                 placeholder="What's happening?"
               ></textarea>
             </div>
             <div className="w-full h-[50px] flex items-center justify-between px-5 box-border">
-              <div className="w-[45%] h-full flex items-center justify-between">
+              <div className="w-[60%] lg:w-[45%] h-full flex items-center justify-between">
                 <img
                   src="/assets/svg/gallery.svg"
                   alt=""

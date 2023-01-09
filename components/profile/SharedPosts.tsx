@@ -13,9 +13,9 @@ type Post = {
 
 const SharedPosts = ({ name, username, content, image }: Post) => {
   return (
-    <div className="self-start w-[99%] min-h-[185px] rounded-[30px] bg-bgCard flex flex-col items-center justify-between overflow-hidden mb-3">
-      <div className="w-full h-[10%] min-h-[50px] sm:min-h-[55px] flex items-end justify-between px-[5%] box-border">
-        <div className="w-[40%] h-full flex items-end justify-start">
+    <div className="self-start w-[99%] min-h-[185px] rounded-[30px] pt-2.5 bg-bgCard flex flex-col items-center justify-between overflow-hidden mb-3">
+      <div className="w-full h-[10%] min-h-[50px] sm:min-h-[55px] flex items-center justify-between px-[5%] box-border">
+        <div className="w-[40%] h-full flex items-center justify-start">
           <img
             src="/assets/images/image.png"
             alt="profilepic"
@@ -30,9 +30,9 @@ const SharedPosts = ({ name, username, content, image }: Post) => {
         </div>
         <BsThreeDots className="text-sideBarLink mr-7" size={26} />
       </div>
-      <div className="w-full flex flex-col items-start justify-start  box-border px-[10%]">
+      <div className="w-full flex flex-col items-start justify-start box-border px-[10%]">
         {content && (
-          <p className=" text-[0.8rem] font-normal text-sideBarLink  text-justify mt-5">
+          <p className=" text-[0.8rem] font-normal text-sideBarLink text-justify">
             {content}
           </p>
         )}
@@ -40,7 +40,7 @@ const SharedPosts = ({ name, username, content, image }: Post) => {
           <img
             src={image}
             alt=""
-            className=" w-full h-[30vh] sm:h-[60vh] object-fill rounded-[10px] my-2 max-h-[270px]"
+            className=" w-full h-[30vh] sm:h-[60vh] object-cover rounded-[10px] my-2 max-h-[270px]"
           />
         )}
       </div>

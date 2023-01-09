@@ -77,7 +77,7 @@ const Home: NextPage = () => {
               name="Shivrajj"
               username="shivrx.lens"
               content="Hello guys, this is my peraonal portfolio website, i creating with html css and javascript. demo at , thank u . #webdev"
-              image={"/assets/images/web3Bharat.png"}
+              image="/assets/images/punk.png"
             />
             <SharedPosts
               name="Shivrajj"
@@ -88,7 +88,7 @@ const Home: NextPage = () => {
               name="Shivrajj"
               username="shivrx.lens"
               content="Hello guys, this is my peraonal portfolio website, i creating with html css and javascript. demo at , thank u . #webdev"
-              image={"/assets/images/web3Bharat.png"}
+              image="/assets/images/redhood.png"
             />
           </div>
         </div>
@@ -97,7 +97,7 @@ const Home: NextPage = () => {
             <div
               className={`w-[70%] ${
                 sidebarToggleCollapse ? "min-w-[200px]" : "min-w-[180px]"
-              } h-[50px] rounded-[30px] flex items-center justify-start bg-bgDropDown text-black pl-3 box-border   oveflow-hidden  duration-500`}
+              } h-[50px] rounded-[30px] flex items-center justify-start bg-bgDropDown text-black pl-6 box-border   oveflow-hidden  duration-500`}
             >
               <FaSearch />
               <input
@@ -117,8 +117,8 @@ const Home: NextPage = () => {
               />
             </button>
           </div>
-          <div className="mt-3 w-full h-[70%] bg-bgDropDown rounded-[30px] flex flex-col items-center overflow-y-scroll scrollbar-hide justify-start">
-            <h1 className="self-start ml-4 text-communityheading text-[1.35rem] font-bold mt-4 mb-2">
+          <div className="mt-3 w-full h-[70%] bg-bgDropDown rounded-[30px] flex flex-col items-center overflow-y-scroll scrollbar-hide justify-start relative">
+            <h1 className="px-4 bg-bgDropDown w-full text-center text-communityheading text-[1.35rem] font-bold pt-2 mb-2 sticky top-0">
               Trending Quests
             </h1>
             {/* <div className="flex flex-col items-center justify-start w-full  "> */}
@@ -169,7 +169,7 @@ const Home: NextPage = () => {
               <img
                 src="/assets/images/image.png"
                 alt=""
-                className="w-[39px] h-[50px] rounded-[30px] "
+                className="w-[38px] h-[50px] rounded-t-full rounded-b-full object-cover"
               />
               <h1 className="text-[1rem] text-sideBarLink font-bold ml-4 ">
                 Messages

@@ -163,7 +163,7 @@ const Profile: NextPage = () => {
               name="Shivrajj"
               username="shivrx.lens"
               content="Hello guys, this is my peraonal portfolio website, i creating with html css and javascript. demo at , thank u . #webdev"
-              image={"/assets/images/web3Bharat.png"}
+              image="/assets/images/web3Bharat.png"
             />
           </div>
         </div>

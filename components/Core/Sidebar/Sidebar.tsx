@@ -64,12 +64,12 @@ export const Sidebar = () => {
     <div
       className={wrapperClasses}
       id="sidebar"
-      // onMouseEnter={() => {
-      //   setSidebarToggleCollapse(false);
-      // }}
-      // onMouseLeave={() => {
-      //   setSidebarToggleCollapse(true);
-      // }}
+    // onMouseEnter={() => {
+    //   setSidebarToggleCollapse(false);
+    // }}
+    // onMouseLeave={() => {
+    //   setSidebarToggleCollapse(true);
+    // }}
     >
       {/* <div className="flex flex-col gap-14">
         <div
@@ -250,11 +250,10 @@ export const Sidebar = () => {
                 className="w-[20px] h-[20px] mr-5"
               />
               <h1
-                className={`${
-                  item.link == router.pathname
+                className={`${item.link == router.pathname
                     ? "text-transparent  bg-clip-text bg-gradient-to-tr from-text_gradient1 to-text_gradient2"
                     : "bg-white text-sideBarLink"
-                } font-extrabold  text-[20px]`}
+                  } font-extrabold  text-[20px]`}
               >
                 {item.label}
               </h1>
@@ -269,7 +268,7 @@ export const Sidebar = () => {
             <img
               src="/assets/images/image.png"
               alt=""
-              className="w-[39px] h-[50px] rounded-[30px] "
+              className="w-[38px] h-[50px] rounded-t-full rounded-b-full object-cover"
             />
             <div className="flex flex-col items-start justify-evenly w-full h-[20%] ml-2">
               <h1 className="text-[0.9rem] text-sideBarLink font-bold ">
@@ -280,16 +279,18 @@ export const Sidebar = () => {
               </h1>
             </div>
           </div>
-          <img
-            src="/assets/svg/quest.svg"
-            alt=""
-            className="h-[20px] w-[20px]"
-          />
-          <img
-            src="/assets/svg/settings.svg"
-            alt=""
-            className="h-[24px] w-[24px]"
-          />
+          <div className="flex items-center gap-5 w-[45%] justify-center">
+            <img
+              src="/assets/svg/quest.svg"
+              alt=""
+              className="h-[20px] w-[20px]"
+            />
+            <img
+              src="/assets/svg/settings.svg"
+              alt=""
+              className="h-[24px] w-[24px]"
+            />
+          </div>
         </div>
       </div>
     </div>

@@ -93,6 +93,13 @@ export const sideBarLinks: any[] = [
     image: "/assets/svg/store.svg",
     link: "/store",
   },
+  {
+    id: 5,
+    label: "Messages",
+    active: "/assets/svg/ActiveMessage.svg",
+    image: "/assets/svg/Message.svg",
+    link: "/messages",
+  },
 ];
 
 module.exports = { menuItems, menuItems1, sideBarLinks };

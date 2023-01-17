@@ -16,13 +16,21 @@ const Message = ({ isSenderCurrentUser, message }: Message) => {
     <div
       className={`${styles.message} ${
         isSenderCurrentUser
-          ? `self-start ${
-              sidebarToggleCollapse ? "ml-[60%]" : "ml-[55%]"
-            } bg-messageBg2 before:right-2 before:bg-messageBg2`
+          ? `self-end  bg-messageBg2 before:right-2 before:bg-messageBg2`
           : "self-start ml-4 bg-messageBg1  before:left-2 before:bg-messageBg1"
-      } relative  w-[50%] min-w-[270px] max-w-[275px] min-h-[40px] h-auto rounded-[10px] flex flex-col items-start justify-start duration-500 p-[2%]`}
+      } relative  w-[50%] min-w-[270px] max-w-[275px] h-auto rounded-[10px] flex flex-col items-start justify-start duration-500 p-[10px] box-border`}
     >
-      <p className="max-w-[95%] break-words text-[12px] leading-3">{message}</p>
+      <span className="max-w-[95%] text-[1rem] break-words my-2 font-poppins">
+        {message}
+      </span>
+      <div className="absolute bottom-0 w-[95%] h-[10px] bg-transparent mb-1 flex items-center justify-end gap-x-2 pr-2 box-border">
+        <span className="text-[0.55rem] text-sideBarLink font-light ">
+          11:20 PM
+        </span>
+        <span className="text-[0.55rem] text-sideBarLink font-light ">
+          sent
+        </span>
+      </div>
     </div>
   );
 };

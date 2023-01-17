@@ -9,7 +9,7 @@ function Quests() {
   const router = useRouter();
   return (
     <DashboardLayout>
-      <div className="w-full h-[100vh] flex flex-col items-center justify-start bg-white overflow-y-scroll pb-16 sm:pb-0 box-border lg1100:mr-[1%] lg1200:mr-[1%] lg1300:mr-[2%] xl1400:mr-[10%] xl1500:mr-[16%]">
+      <div className="w-full h-[100vh] flex flex-col items-center justify-start bg-white overflow-y-scroll pb-16 sm:pb-0 box-border lg1100:mr-[1%] lg1200:mr-[1%] lg1300:mr-[2%] xl1400:mr-[10%] xl1500:mr-[16%] pt-0 sm:pt-[50px]">
         <Header />
         <div className="w-[100%] h-[10vh] bg-transparent flex sm:hidden gap-x-2 items-center justify-between">
           <QuestType title="All" isActive />

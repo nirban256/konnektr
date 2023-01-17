@@ -29,7 +29,7 @@ const UserCard = ({
         {description}
       </span>
       <div className="flex w-[100%] items-center  justify-center mt-1 mb-2">
-        <button className="bg-gradient-to-r min-w-[120px] sm:min-w-[145px] sm:max-w-[160px]  from-gradient1 to-gradient2 text-[0.7rem] text-sideBarLink w-[45%] h-[22px] rounded-[5px] font-semibold ">
+        <button className="bg-gradient-to-r min-w-[120px] sm:min-w-[145px] sm:max-w-[160px]  from-gradient1 to-gradient2 text-[0.7rem]  w-[45%] h-[22px] rounded-[5px] font-semibold text-white">
           Konnekt
         </button>
       </div>

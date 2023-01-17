@@ -25,9 +25,9 @@ const Profile: NextPage = () => {
 
   return (
     <DashboardLayout>
-      <div className="w-[100%] h-[100vh] flex flex-col sm:flex-row items-start justify-between bg-bgGrey1 pb-16 sm:pb-0 box-border overflow-hidden">
+      <div className="w-[100%] h-[100vh] flex flex-col sm:flex-row items-start justify-between bg-white pb-16 sm:pb-0 box-border overflow-x-hidden">
         <Header />
-        <div className="h-full w-full sm:w-[68%] flex flex-col items-center justify-start overflow-y-scroll scrollbar-hide px-2 lg:px-0 box-border">
+        <div className="h-full w-full sm:w-[68%] flex flex-col items-center justify-start overflow-y-scroll scrollbar-hide px-2 lg:px-0 box-border pt-5">
           <div className="w-full h-[70vh] flex flex-col items-center justify-start">
             <div className="relative w-[100%] h-[30vh] max-h-[110px] sm:max-h-[160px] bg-bgCover  bg-no-repeat bg-center bg-cover rounded-t-[30px] mt-0 lg:mt-2">
               <img
@@ -46,22 +46,24 @@ const Profile: NextPage = () => {
             </div>
             <div
               className={`self-end ${
-                sidebarToggleCollapse ? "w-[70%] sm:w-[85%]" : "w-[82%]"
+                sidebarToggleCollapse
+                  ? "w-[70%] sm:w-[85%]"
+                  : "w-[75%] sm:w-[80%] "
               } h-[6vh] sm:h-[12vh] bg-transparent flex items-center justify-between duration-500`}
             >
               <div className="w-[30%] h-full flex flex-col items-start justify-evenly pl-1 box-border">
-                <h1 className="text-sideBarLink text-[0.9rem] sm:text-[1.5rem] font-bold">
+                <h1 className="text-sideBarLink text-[0.9rem] sm:text-[1.5rem] font-bold ml-3 lg:ml-0">
                   Shivrajjj
                 </h1>
                 <h1 className="text-sideBarLink text-[0.75rem] font-light">
                   @kewcoder
                 </h1>
               </div>
-              <div className="flex items-center sm:items-start justify-evenly w-[60%] sm:w-[30%] h-full pt-[1%] box-border ">
-                <GradientButton classname="w-[20%] min-w-[80px] sm:w-[50%]  sm:min-w-[100px] sm:max-w-[150px] h-[60%] min-h-[25px] max-h-[30px]  sm:max-h-[30px] rounded-[20px] text-white text-[0.8rem] font-bold ">
+              <div className="flex items-center sm:items-start justify-evenly w-[60%] sm:w-[30%] h-full pt-[1%] box-border pr-2 sm:pr-10">
+                <GradientButton classname="w-[60%] min-w-[80px] sm:w-[50%]  sm:min-w-[100px] sm:max-w-[150px] h-[60%] min-h-[25px] max-h-[30px]  sm:max-h-[30px] rounded-[20px] text-white text-[0.8rem] font-bold ">
                   Konnekt
                 </GradientButton>
-                <button className="min-w-[35px]  sm:min-w-[70px] sm:max-w-[130px] h-[60%] min-h-[30px] sm:min-h-[30px] max-h-[30px] sm:max-h-[32px] rounded-[20px] flex items-center justify-center bg-bgDropDown">
+                <button className="min-w-[45px]  sm:min-w-[70px] sm:max-w-[130px] h-[60%] min-h-[35px] sm:min-h-[30px] max-h-[30px] sm:max-h-[32px] rounded-[20px] flex items-center justify-center bg-bgDropDown">
                   <AiOutlineMessage
                     className="hidden sm:flex text-black"
                     size={20}
@@ -77,7 +79,7 @@ const Profile: NextPage = () => {
               className={`self-start ${
                 sidebarToggleCollapse
                   ? "max-w-[90%] sm:max-w-[50%]"
-                  : "max-w-[60%]"
+                  : "max-w-[90%]"
               } mt-3 mb-0 sm:mb-2 font-light text-[0.85rem] sm:text-[0.97rem] text-profileDesc duration-500`}
             >
               Blockchain | LearnWeb3dao | Intern @Buildspace | Code is law ✌ |
@@ -86,7 +88,7 @@ const Profile: NextPage = () => {
             <div className="w-full h-[12vh] flex items-center justify-between my-1">
               <div
                 className={`${
-                  sidebarToggleCollapse ? "w-[65%] sm:w-[40%]" : "w-[50%]"
+                  sidebarToggleCollapse ? "w-[65%] sm:w-[40%]" : "w-[60%]"
                 } h-full flex items-center sm:items-start justify-between duration-500`}
               >
                 <FollowerSectionItem title="Followers" value={100} />
@@ -163,37 +165,36 @@ const Profile: NextPage = () => {
               name="Shivrajj"
               username="shivrx.lens"
               content="Hello guys, this is my peraonal portfolio website, i creating with html css and javascript. demo at , thank u . #webdev"
-              image="/assets/images/web3Bharat.png"
+              image={"/assets/images/web3Bharat.png"}
+            />
+            <SharedPosts
+              name="Shivrajj"
+              username="shivrx.lens"
+              content="Hello guys, this is my peraonal portfolio website, i creating with html css and javascript. demo at , thank u . #webdev"
+            />
+            <SharedPosts
+              name="Shivrajj"
+              username="shivrx.lens"
+              content="Hello guys, this is my peraonal portfolio website, i creating with html css and javascript. demo at , thank u . #webdev"
+              image={"/assets/images/web3Bharat.png"}
             />
           </div>
         </div>
-        <section className=" hidden h-full w-[30%] min-w-[320px] sm:flex flex-col items-center justify-start lg1100:mr-[1%] lg1200:mr-[1%] lg1300:mr-[2%] xl1400:mr-[10%] xl1500:mr-[16%] ml-0 lg:ml-3">
+        <section className=" hidden h-full w-[30%] min-w-[320px] sm:flex flex-col items-center justify-start lg1100:mr-[1%] lg1200:mr-[1%] lg1300:mr-[2%] xl1400:mr-[10%] xl1500:mr-[16%] ml-0 lg:ml-3 pt-1">
           <div className="w-full h-[10%] flex items-center justify-between">
             <div
-              className={`w-[70%] ${
-                sidebarToggleCollapse ? "min-w-[200px]" : "min-w-[180px]"
-              } h-[50px] rounded-[30px] flex items-center justify-start bg-bgDropDown text-black pl-3 box-border   oveflow-hidden  duration-500`}
+              className={`w-[100%]  h-[50px] rounded-[30px] flex items-center justify-start bg-bgDropDown text-black pl-3 box-border   oveflow-hidden  duration-500`}
             >
               <FaSearch />
               <input
                 type="text"
                 placeholder="Search"
-                className="w-[85%] h-full text-black pl-3 bg-transparent placeholder:text-sideBarLink placeholder:font-bold focus:outline-none"
+                className="w-[100%] h-full text-black pl-3 bg-transparent placeholder:text-sideBarLink placeholder:font-bold focus:outline-none"
               />
             </div>
-            <button
-              onClick={() => router.push("/messages")}
-              className="w-[20%] min-w-[90px] h-[50px] rounded-[30px] flex items-center justify-center bg-bgDropDown"
-            >
-              <img
-                src="/assets/svg/message.svg"
-                alt=""
-                className="h-[25px] w-[25px]"
-              />
-            </button>
           </div>
-          <div className="mt-3 w-full h-[50vh] bg-bgDropDown rounded-[30px] flex flex-col items-center overflow-y-scroll scrollbar-hide justify-start">
-            <h1 className="self-start ml-4 text-communityheading text-[1.35rem] font-bold mt-4 mb-2">
+          <div className="mt-3 w-full h-[70vh] bg-bgDropDown rounded-[30px] flex flex-col items-center overflow-y-scroll scrollbar-hide justify-start">
+            <h1 className="self-start px-4 flex items-start justify-start bg-bgDropDown w-full text-center text-communityheading text-[1.35rem] font-bold pt-2 mb-2 sticky top-0">
               Your Communities
             </h1>
             {/* <div className="flex flex-col items-center justify-start w-full  "> */}
@@ -231,7 +232,7 @@ const Profile: NextPage = () => {
             />
             {/* </div> */}
           </div>
-          <div className="w-full h-[30vh] flex flex-col items-center justify-evenly border-[1px] border-goldBorder bg-goldBg rounded-[30px] mt-2 px-[8%] py-[3%] box-border">
+          {/* <div className="w-full h-[30vh] flex flex-col items-center justify-evenly border-[1px] border-goldBorder bg-goldBg rounded-[30px] mt-2 px-[8%] py-[3%] box-border">
             <h1 className="self-start text-goldText font-bold text-[1.1rem] mb-2">
               Beta warning!
             </h1>
@@ -243,7 +244,7 @@ const Profile: NextPage = () => {
               © 2022 konnektr Privacy Discord Donate Status Vote Feedback hanks
               GitHub▲ Powered by Vercel
             </p>
-          </div>
+          </div> */}
         </section>
       </div>
     </DashboardLayout>

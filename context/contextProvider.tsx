@@ -9,6 +9,8 @@ export interface AppContextInterface {
   setWork: React.Dispatch<React.SetStateAction<string>>;
   experience: any;
   setExperience: React.Dispatch<React.SetStateAction<string>>;
+  setIsDrawerOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  isDrawerOpen: boolean;
 }
 export const AppStateContext = createContext<AppContextInterface | null>(null);
 
@@ -17,6 +19,7 @@ export const AppContextProvider = ({ children }: { children: ReactNode }) => {
   const [searchBy, setSearchBy] = useState("Name");
   const [work, setWork] = useState("");
   const [experience, setExperience] = useState("");
+  const [isDrawerOpen, setIsDrawerOpen] = useState<boolean>(false);
 
   return (
     <AppStateContext.Provider
@@ -29,6 +32,8 @@ export const AppContextProvider = ({ children }: { children: ReactNode }) => {
         setWork,
         experience,
         setExperience,
+        setIsDrawerOpen,
+        isDrawerOpen,
       }}
     >
       {children}

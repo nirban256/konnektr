@@ -20,7 +20,7 @@ export const Sidebar = () => {
   const wrapperClasses = classNames(
     "h-screen pt-1 bg-white hidden lg:flex justify-between flex-col transition-all duration-500 bg-white rounded-tr-3xl rounded-br-3xl duration-500 overflow-hidden lg1100:ml-[1%] lg1200:ml-[1%] lg1300:ml-[3%] xl1400:ml-[8%] xl1500:ml-[12%]",
     {
-      ["w-80 "]: !sidebarToggleCollapse,
+      ["w-80 xl1400:w-[380px] "]: !sidebarToggleCollapse,
       ["w-20"]: sidebarToggleCollapse,
       absolute: false,
     }
@@ -64,12 +64,12 @@ export const Sidebar = () => {
     <div
       className={wrapperClasses}
       id="sidebar"
-    // onMouseEnter={() => {
-    //   setSidebarToggleCollapse(false);
-    // }}
-    // onMouseLeave={() => {
-    //   setSidebarToggleCollapse(true);
-    // }}
+      // onMouseEnter={() => {
+      //   setSidebarToggleCollapse(false);
+      // }}
+      // onMouseLeave={() => {
+      //   setSidebarToggleCollapse(true);
+      // }}
     >
       {/* <div className="flex flex-col gap-14">
         <div
@@ -227,7 +227,7 @@ export const Sidebar = () => {
           />
           <h1
             className={classNames(
-              "mt-2 ml-2 text-3xl font-semibold text-sideBarLink pr-3 relative bottom-1 font_exo2",
+              "mt-2 ml-2 text-3xl font-extrabold text-sideBarLink pr-3 relative bottom-1 font-poppins",
               {
                 "opacity-0": sidebarToggleCollapse,
                 hidden: sidebarToggleCollapse,
@@ -250,10 +250,11 @@ export const Sidebar = () => {
                 className="w-[20px] h-[20px] mr-5"
               />
               <h1
-                className={`${item.link == router.pathname
+                className={`${
+                  item.link == router.pathname
                     ? "text-transparent  bg-clip-text bg-gradient-to-tr from-text_gradient1 to-text_gradient2"
                     : "bg-white text-sideBarLink"
-                  } font-extrabold  text-[20px]`}
+                } font-medium  text-[20px]`}
               >
                 {item.label}
               </h1>
@@ -268,7 +269,7 @@ export const Sidebar = () => {
             <img
               src="/assets/images/image.png"
               alt=""
-              className="w-[38px] h-[50px] rounded-t-full rounded-b-full object-cover"
+              className="w-[50px] h-[50px]  rounded-full object-cover"
             />
             <div className="flex flex-col items-start justify-evenly w-full h-[20%] ml-2">
               <h1 className="text-[0.9rem] text-sideBarLink font-bold ">

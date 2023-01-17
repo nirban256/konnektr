@@ -2,8 +2,10 @@ import { NextPage } from "next";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { FaPlus, FaSearch } from "react-icons/fa";
+import PostModal from "../components/home/PostModal";
 import SearchItem from "../components/home/SearchItem";
 import TrendingQuestItem from "../components/home/TrendingQuestItem";
+import CallModal from "../components/messages/CallModal";
 import Header from "../components/profile/Header";
 import SharedPosts from "../components/profile/SharedPosts";
 import { useAppStateContext } from "../context/contextProvider";
@@ -17,31 +19,30 @@ const Home: NextPage = () => {
   const router = useRouter();
 
   const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
-
-  // useEffect(() => {
-  //   if (window) {
-  //     alert(window.innerWidth);
-  //   }
-  // }, []);
+  const [isloggedIn, setIsloggedIn] = useState<boolean>(false);
+  const [isAlphamodalActive, setisAlphamodalActive] = useState<boolean>(true);
 
   return (
     <DashboardLayout>
-      <div className="w-[100%] lg1300:w-[80%]  h-[100vh] flex flex-col sm:flex-row items-start justify-between bg-white pb-16  sm:pb-0 box-border overflow-hidden">
-        <div className="h-full w-full flex flex-col items-center justify-start overflow-y-scroll scrollbar-hide px-2 lg:px-0 box-border">
+      <div className="w-[100%] lg1300:w-[100%]  h-[100vh] flex flex-col sm:flex-row items-start justify-between bg-white pb-16  sm:pb-0 box-border overflow-hidden">
+        <div className="h-full w-full flex flex-col items-center justify-start overflow-y-scroll scrollbar-hide px-2 lg:px-0 box-border pt-3">
           <Header logoShown />
-          <div className="w-[97%] lg:w-full min-h-[85px] lg:min-h-[75px] flex flex-col items-center justify-center border-[1px] border-goldBorder bg-goldBg rounded-[20px] mt-2 mb-3 px-[8%]  box-border">
-            <h1 className="self-start text-goldText font-extrabold text-[0.8rem] ">
-              Beta warning!
-            </h1>
-            <p className="self-start text-[0.7rem] text-lightGold font-light my-1 leading-[10px] lg:leading-3">
-              Konnektr is still in the beta phase,things may break,please handle
-              us with care.
-            </p>
-            <p className="self-start text-[0.7rem] font-light text-profileDesc leading-[10px] lg:leading-3">
-              © 2022 konnektr Privacy Discord Donate Status Vote Feedback hanks
-              GitHub▲ Powered by Vercel
-            </p>
-          </div>
+          {isAlphamodalActive && (
+            <div className="relative w-[100%] lg:w-full min-h-[85px] lg:min-h-[60px] flex flex-col items-start justify-center border-[1px] border-goldBorder bg-goldBg rounded-[10px] mt-2 mb-3 px-[4%]  box-border">
+              <FaPlus
+                onClick={() => setisAlphamodalActive(false)}
+                className="absolute top-2 right-2 text-goldText rotate-45"
+                size={12}
+              />
+              <h1 className=" text-goldText font-extrabold text-[0.8rem] ">
+                Alpha warning!
+              </h1>
+              <p className="text-[0.75rem] text-goldText font-light">
+                Alpha warning ! Konnektr is still in the alpha phase,things may
+                break,please handle us with care.
+              </p>
+            </div>
+          )}
           <div className="w-[99%] sticky h-auto sm:min-h-[50px] max-h-[128px] rounded-[25px] bg-bgCard flex flex-col items-center justify-evenly sm:justify-between py-2 sm:py-0 box-border mb-3">
             <div
               onClick={() => setIsModalVisible(true)}
@@ -72,53 +73,76 @@ const Home: NextPage = () => {
               name="Shivrajj"
               username="shivrx.lens"
               content="Hello guys, this is my peraonal portfolio website, i creating with html css and javascript. demo at , thank u . #webdev"
+              onClick={() => router.push("/posts/1")}
             />
             <SharedPosts
               name="Shivrajj"
               username="shivrx.lens"
               content="Hello guys, this is my peraonal portfolio website, i creating with html css and javascript. demo at , thank u . #webdev"
+              onClick={() => router.push("/posts/1")}
               image="/assets/images/punk.png"
             />
             <SharedPosts
               name="Shivrajj"
               username="shivrx.lens"
               content="Hello guys, this is my peraonal portfolio website, i creating with html css and javascript. demo at , thank u . #webdev"
+              onClick={() => router.push("/posts/1")}
             />
             <SharedPosts
               name="Shivrajj"
               username="shivrx.lens"
               content="Hello guys, this is my peraonal portfolio website, i creating with html css and javascript. demo at , thank u . #webdev"
+              onClick={() => router.push("/posts/1")}
               image="/assets/images/redhood.png"
             />
           </div>
         </div>
-        <section className=" hidden h-full w-[35%] min-w-[350px] lg:flex flex-col items-center justify-between ml-2 py-2 lg1100:mr-[1%] lg1200:mr-[1%] lg1300:mr-[2%] xl1400:mr-[10%] xl1500:mr-[16%] ">
-          <div className="w-full h-[10%] flex items-center justify-between">
-            <div
-              className={`w-[70%] ${
-                sidebarToggleCollapse ? "min-w-[200px]" : "min-w-[180px]"
-              } h-[50px] rounded-[30px] flex items-center justify-start bg-bgDropDown text-black pl-6 box-border   oveflow-hidden  duration-500`}
-            >
-              <FaSearch />
-              <input
-                type="text"
-                placeholder="Search"
-                className="w-[85%] h-full text-black pl-3 bg-transparent placeholder:text-sideBarLink placeholder:font-bold focus:outline-none"
-              />
-            </div>
-            <button
-              onClick={() => router.push("/messages")}
-              className="w-[20%] min-w-[90px] h-[50px] rounded-[30px] flex items-center justify-center bg-bgDropDown"
-            >
-              <img
-                src="/assets/svg/message.svg"
-                alt=""
-                className="h-[25px] w-[25px]"
-              />
-            </button>
+        <section className="relative hidden h-full w-[35%] min-w-[350px] lg:flex flex-col items-center justify-start ml-2 py-2 lg1100:mr-[1%] lg1200:mr-[1%] lg1300:mr-[2%] xl1400:mr-[10%] xl1500:mr-[16%] ">
+          <div
+            className={`w-full h-[10%] flex items-center ${
+              isloggedIn ? "justify-between" : "justify-end pr-6"
+            }`}
+          >
+            {isloggedIn && (
+              <div
+                className={`w-[70%] ${
+                  sidebarToggleCollapse ? "min-w-[200px]" : "min-w-[180px]"
+                } h-[50px] rounded-[30px] flex items-center justify-start bg-bgDropDown text-black pl-6 box-border   oveflow-hidden  duration-500`}
+              >
+                <FaSearch />
+                <input
+                  type="text"
+                  placeholder="Search"
+                  className="w-[85%] h-full text-black pl-3 bg-transparent placeholder:text-sideBarLink placeholder:font-bold focus:outline-none"
+                />
+              </div>
+            )}
+            {isloggedIn ? (
+              <button className="w-[90px] h-[45px] rounded-[30px] flex items-center justify-evenly bg-gradient-to-r from-text_gradient1 to-text_gradient2  ">
+                <img
+                  src="/assets/svg/lens-white.svg"
+                  alt=""
+                  className="w-[40px] h-[40px]"
+                />
+              </button>
+            ) : (
+              <button
+                onClick={() => setIsModalVisible(true)}
+                className="w-[120px] h-[45px] rounded-[30px] flex items-center justify-evenly bg-gradient-to-r from-text_gradient1 to-text_gradient2  "
+              >
+                <img
+                  src="/assets/svg/lens-white.svg"
+                  alt=""
+                  className="w-[40px] h-[40px]"
+                />
+                <h1 className="text-[1rem] text-white font-semibold mr-3 ">
+                  Login
+                </h1>
+              </button>
+            )}
           </div>
           <div className="mt-3 w-full h-[70%] bg-bgDropDown rounded-[30px] flex flex-col items-center overflow-y-scroll scrollbar-hide justify-start relative">
-            <h1 className="px-4 bg-bgDropDown w-full text-center text-communityheading text-[1.35rem] font-bold pt-2 mb-2 sticky top-0">
+            <h1 className="self-start px-4 flex items-start justify-start bg-bgDropDown w-full text-center text-communityheading text-[1.35rem] font-bold pt-2 mb-2 sticky top-0">
               Trending Quests
             </h1>
             {/* <div className="flex flex-col items-center justify-start w-full  "> */}
@@ -164,7 +188,7 @@ const Home: NextPage = () => {
             />
             {/* </div> */}
           </div>
-          <div className="w-full h-[70px] rounded-[20px] bg-bgCover flex items-center justify-between px-5 box-border my-2">
+          {/* <div className="w-full h-[70px] rounded-[20px] bg-bgCover flex items-center justify-between px-5 box-border my-2">
             <div className="w-[50%] h-full flex items-center justify-start">
               <img
                 src="/assets/images/image.png"
@@ -180,83 +204,21 @@ const Home: NextPage = () => {
               alt=""
               className="w-[24px] h-[24px] "
             />
-          </div>
+          </div> */}
+          <CallModal
+            className="absolute bottom-[10px] mb-2 z-[100]"
+            status="Calling"
+            mobile={true}
+            name={"Shivrajj"}
+            profileImage={"/assets/images/image.png"}
+          />
         </section>
       </div>
       {isModalVisible && (
-        <div className="fixed z-[100] w-screen h-screen bg-profileDesc top-0 flex flex-col items-center justify-start lg:justify-center">
-          <div className="relative w-[95%]  lg:w-[50%] h-[90%] lg:h-[30%] lg:min-h-[220px]  lg:max-h-[230px] max-w-[650px] bg-bgCover lg:bg-white rounded-[30px] flex flex-col items-center justify-start overflow-hidden border-[3px] border-borderModal ">
-            <div className="w-full h-[50px] border-b-[1px] border-b-line flex items-center justify-between px-5 box-border">
-              <h1 className="text-[0.9rem] font-extrabold text-sideBarLink">
-                Create Post
-              </h1>
-              <div
-                onClick={() => setIsModalVisible(false)}
-                className="w-[24px] h-[24px] rounded-full bg-bgCoverDark flex items-center justify-center"
-              >
-                <FaPlus className="text-gray-600 rotate-45" size={14} />
-              </div>
-            </div>
-            <div className="w-full h-[90%] lg:h-[130px] flex flex-col items-start justify-center">
-              <textarea
-                rows={5}
-                autoFocus={false}
-                style={{ resize: "none" }}
-                className="w-full h-full border-2 text-black placeholder:text-gray-400 placeholder:font-light placeholder:text-[0.9rem] bg-transparent  overflow-auto scrollbar-hide focus:outline-none pl-4 box-border pt-[8%]"
-                placeholder="What's happening?"
-              ></textarea>
-            </div>
-            <div className="w-full h-[50px] flex items-center justify-between px-5 box-border">
-              <div className="w-[60%] lg:w-[45%] h-full flex items-center justify-between">
-                <img
-                  src="/assets/svg/gallery.svg"
-                  alt=""
-                  className="w-[20px] h-[20px] "
-                />
-                <img
-                  src="/assets/svg/videocircle.svg"
-                  alt=""
-                  className="w-[22px] h-[22px] "
-                />
-                <img
-                  src="/assets/svg/calendaredit.svg"
-                  alt=""
-                  className="w-[20px] h-[20px] "
-                />
-                <img
-                  src="/assets/svg/gift.svg"
-                  alt=""
-                  className="w-[20px] h-[20px] "
-                />
-                <img
-                  src="/assets/svg/textbold.svg"
-                  alt=""
-                  className="w-[20px] h-[20px] "
-                />
-                <img
-                  src="/assets/svg/textitalic.svg"
-                  alt=""
-                  className="w-[20px] h-[20px] "
-                />
-                <img
-                  src="/assets/svg/textunderline.svg"
-                  alt=""
-                  className="w-[20px] h-[20px] "
-                />
-              </div>
-              <button className="w-[90px] h-[33px] rounded-[30px] flex items-center justify-evenly bg-gradient-to-r from-text_gradient1 to-text_gradient2  ">
-                <img
-                  src="/assets/svg/magicpenwhite.svg"
-                  alt=""
-                  className="w-[22px] h-[22px]"
-                />
-                <h1 className="text-[0.9rem] text-white font-semibold mr-3 ">
-                  Post
-                </h1>
-              </button>
-            </div>
-          </div>
-        </div>
+        <PostModal
+          closeButtonClick={() => setIsModalVisible(false)}
+          isLoggedIn={isloggedIn}
+        />
       )}
     </DashboardLayout>
   );

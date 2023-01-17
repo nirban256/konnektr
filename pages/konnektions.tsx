@@ -79,7 +79,7 @@ const konnektions = () => {
                 icon={<FaSearch className="text-sideBarLink ml-4" size={22} />}
                 classNames={{
                   input:
-                    "text-white w-[90vw] sm:w-[35vw] h-[38px] sm:h-[50px] sm:w-[100%] min-w-[40vw] sm:min-w-[30vw] bg-bgSearchbar rounded-[30px] pl-[50px] ",
+                    "text-white w-[100vw] sm:w-[35vw] h-[38px] sm:h-[50px] sm:w-[100%] min-w-[40vw] sm:min-w-[30vw] bg-bgSearchbar rounded-[30px] pl-[50px] ",
                 }}
               />
             ) : (
@@ -94,7 +94,7 @@ const konnektions = () => {
                 }
                 classNames={{
                   input:
-                    "w-[90vw] sm:w-[35vw] sm:w-[100%] h-[38px] sm:h-[50px] min-w-[40vw] sm:min-w-[30vw] bg-bgSearchbar border-none rounded-[30px] pl-[50px] pt-2 box-border",
+                    "w-[100vw] sm:w-[35vw] sm:w-[100%] h-[38px] sm:h-[50px] min-w-[40vw] sm:min-w-[30vw] bg-bgSearchbar border-none rounded-[30px] pl-[50px] pt-2 box-border",
                   dropdown: "bg-gray-100 border-none scrollbar-hide",
                   item: "text-black hover:text-black bg-transparent w-full",
                 }}

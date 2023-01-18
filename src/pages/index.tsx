@@ -2,6 +2,7 @@ import { NextPage } from "next";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { FaPlus, FaSearch } from "react-icons/fa";
+import ConnectBtn from "../components/home/ConnectBtn";
 import PostModal from "../components/home/PostModal";
 import SearchItem from "../components/home/SearchItem";
 import TrendingQuestItem from "../components/home/TrendingQuestItem";
@@ -9,6 +10,7 @@ import CallModal from "../components/messages/CallModal";
 import Header from "../components/profile/Header";
 import SharedPosts from "../components/profile/SharedPosts";
 import { useAppStateContext } from "../context/contextProvider";
+import { PublicationSortCriteria, useExplorePublicationsQuery } from "../graphql/generated";
 import DashboardLayout from "../layout/dashboard";
 
 const Home: NextPage = () => {
@@ -21,6 +23,18 @@ const Home: NextPage = () => {
   const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
   const [isloggedIn, setIsloggedIn] = useState<boolean>(false);
   const [isAlphamodalActive, setisAlphamodalActive] = useState<boolean>(true);
+
+  const {data, isLoading, error} = useExplorePublicationsQuery({
+    request: {
+      sortCriteria: PublicationSortCriteria.Latest
+    }
+  },
+  {
+    // Don't refetch the user comes back
+    refetchOnWindowFocus: false,
+    refetchOnReconnect: false,
+  })
+
 
   return (
     <DashboardLayout>
@@ -99,15 +113,15 @@ const Home: NextPage = () => {
         </div>
         <section className="relative hidden h-full w-[35%] min-w-[350px] lg:flex flex-col items-center justify-start ml-2 py-2 lg1100:mr-[1%] lg1200:mr-[1%] lg1300:mr-[2%] xl1400:mr-[10%] xl1500:mr-[16%] ">
           <div
-            className={`w-full h-[10%] flex items-center ${
-              isloggedIn ? "justify-between" : "justify-end pr-6"
+            className={`w-full h-[60px] flex items-center ${
+              isloggedIn ? "justify-between" : "justify-between"
             }`}
           >
-            {isloggedIn && (
+            {true && (
               <div
-                className={`w-[70%] ${
+                className={`w-[72.5%] ${
                   sidebarToggleCollapse ? "min-w-[200px]" : "min-w-[180px]"
-                } h-[50px] rounded-[30px] flex items-center justify-start bg-bgDropDown text-black pl-6 box-border   oveflow-hidden  duration-500`}
+                } h-[50px] rounded-[30px] flex items-center justify-start bg-bgDropDown text-black pl-6 box-border oveflow-hidden duration-500 border shadow`}
               >
                 <FaSearch />
                 <input
@@ -118,7 +132,7 @@ const Home: NextPage = () => {
               </div>
             )}
             {isloggedIn ? (
-              <button className="w-[90px] h-[45px] rounded-[30px] flex items-center justify-evenly bg-gradient-to-r from-text_gradient1 to-text_gradient2  ">
+              <button className="w-[90px] h-[50px] rounded-[30px] flex items-center justify-evenly bg-gradient-to-r from-text_gradient1 to-text_gradient2  ">
                 <img
                   src="/assets/svg/lens-white.svg"
                   alt=""
@@ -126,19 +140,7 @@ const Home: NextPage = () => {
                 />
               </button>
             ) : (
-              <button
-                onClick={() => setIsModalVisible(true)}
-                className="w-[120px] h-[45px] rounded-[30px] flex items-center justify-evenly bg-gradient-to-r from-text_gradient1 to-text_gradient2  "
-              >
-                <img
-                  src="/assets/svg/lens-white.svg"
-                  alt=""
-                  className="w-[40px] h-[40px]"
-                />
-                <h1 className="text-[1rem] text-white font-semibold mr-3 ">
-                  Login
-                </h1>
-              </button>
+              <ConnectBtn />
             )}
           </div>
           <div className="mt-3 w-full h-[70%] bg-bgDropDown rounded-[30px] flex flex-col items-center overflow-y-scroll scrollbar-hide justify-start relative">

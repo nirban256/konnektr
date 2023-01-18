@@ -94,7 +94,7 @@ export const sideBarLinks: any[] = [
     link: "/store",
   },
   {
-    id: 5,
+    id: 6,
     label: "Messages",
     active: "/assets/svg/ActiveMessage.svg",
     image: "/assets/svg/Message.svg",

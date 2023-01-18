@@ -223,11 +223,11 @@ export const Sidebar = () => {
           <img
             src="/assets/images/konnektr_logo_white.png"
             alt="konnektr_logo"
-            className={`w-7 relative right-0.5`}
+            className={`w-7 relative right-0.5 hidden`}
           />
           <h1
             className={classNames(
-              "mt-2 ml-2 text-3xl font-extrabold text-sideBarLink pr-3 relative bottom-1 font-poppins",
+              "mt-2 ml-4 text-3xl font-extrabold text-sideBarLink pr-3 relative bottom-1 font-poppins",
               {
                 "opacity-0": sidebarToggleCollapse,
                 hidden: sidebarToggleCollapse,
@@ -263,7 +263,7 @@ export const Sidebar = () => {
         </div>
         <div
           onClick={() => router.push("/profile")}
-          className="w-full h-[10%] flex items-center justify-between px-4 box-border mb-5 cursor-pointer"
+          className="w-full h-[10%] flex items-center justify-between pr-4 pl-2 box-border mb-5 cursor-pointer"
         >
           <div className="flex items-center justify-start w-[55%] h-full ">
             <img
@@ -275,7 +275,7 @@ export const Sidebar = () => {
               <h1 className="text-[0.9rem] text-sideBarLink font-bold ">
                 Shivrajj
               </h1>
-              <h1 className="text-[0.78rem] text-sideBarLink font-light">
+              <h1 className="text-[0.78rem] text-sideBarLink font-light from-text_gradient1 to-text_gradient2">
                 @kewcoder
               </h1>
             </div>
